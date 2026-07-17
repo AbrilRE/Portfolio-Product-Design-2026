@@ -1301,10 +1301,18 @@ export default function App() {
             </div>
 
             {/* Projects area – placeholder */}
+            
             <div className="w-full min-h-[452px] flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0">
               {/*  <p className="text-[#a098a1] text-[14px] tracking-[-0.14px]">{tx.playgroundEmpty}</p> */}
-      
-              <div className="flex flex-col gap-2">
+               
+                <div className="flex flex-col gap-2">
+                 <video className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="265" height="620" controls>
+                    <source src="https://res.cloudinary.com/dmbjyyh6n/video/upload/v1784254166/Portfolio%202026/Petmarket_Prototype_xdd3ei.mov" type="video/mp4" />
+                  </video>
+                 <p className="text-[#504e51] text-[16px] leading-[1.42]">PetMarket 2026 (Video) </p>
+                </div>
+
+                <div className="flex flex-col gap-2">
                 <iframe className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="250" height="590" src="https://embed.figma.com/proto/vXKKXAmqMN6jUWru3VnRxb/Log-in-Prototype--Backup-?content-scaling=fixed&kind=proto&node-id=10-158&scaling=scale-down-width&starting-point-node-id=4%3A472&page-id=2%3A2&embed-host=share" allowFullScreen></iframe>
                  <p className="text-[#504e51] text-[16px] leading-[1.42]">Gym Onboarding 2023</p>
                 </div>
@@ -1315,11 +1323,17 @@ export default function App() {
                 </div>
 
                <div className="flex flex-col gap-2">
-                <iframe className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="250" height="590" src="https://embed.figma.com/proto/aMBXZnVQrTMTUOZcQCdbl5/Web--Makeup--Plants?node-id=21-58&page-id=3%3A2&starting-point-node-id=21%3A58&scaling=scale-down-width&content-scaling=fixed&embed-host=share" allowFullScreen></iframe>
+                <iframe className="rounded-[25px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="250" height="590" src="https://embed.figma.com/proto/aMBXZnVQrTMTUOZcQCdbl5/Web--Makeup--Plants?node-id=21-58&page-id=3%3A2&starting-point-node-id=21%3A58&scaling=scale-down-width&content-scaling=fixed&embed-host=share" allowFullScreen></iframe>
                  <p className="text-[#504e51] text-[16px] leading-[1.42]">Makeup App 2022</p>
                 </div>
-              
             </div>
+               <br />
+                <div className="flex flex-col gap-2">
+                 <video className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} controls>
+                    <source src="https://res.cloudinary.com/dmbjyyh6n/video/upload/v1784255377/Portfolio%202026/Ai_tool_Prototype_gjf6lg.mp4" type="video/mp4" />
+                  </video>
+                  <p className="text-[#504e51] text-[16px] leading-[1.42]">Ai Tool Landing 2026 (Video) </p>
+                 </div>
           </div>
 
           {/* Footer */}
