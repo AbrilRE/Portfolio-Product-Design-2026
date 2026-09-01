@@ -22,7 +22,7 @@ const t = {
     about: "About",
     playground: "Playground",
     name: "Abril Ríos",
-    role: "Product Designer",
+    role: "Product Designer | UI/UX Designer ",
     tagline: "Designing digital products through strategy, usability, and visual thinking.",
     location: "Hidalgo",
     scrollExplore: "Scroll to explore",
@@ -49,7 +49,7 @@ const t = {
     projectType: "Project Type",
     projectTypeVal: "AI Tool",
     myRole: "My Role",
-    myRoleVal: "Product Designer",
+    myRoleVal: "Product Designer | UI/UX Designer ",
     year: "Year",
     yearVal: "2025",
     overviewLabel: "Overview",
@@ -81,7 +81,7 @@ const t = {
     about: "Sobre mí",
     playground: "Exploración",
     name: "Abril Ríos",
-    role: "Diseñadora de Producto",
+    role: "Diseñador de Producto | Diseñador UI/UX",
     tagline: "Diseñando productos digitales a través de estrategia, usabilidad y pensamiento visual.",
     location: "Hidalgo",
     scrollExplore: "Desplázate para explorar",
@@ -108,7 +108,7 @@ const t = {
     projectType: "Tipo de Proyecto",
     projectTypeVal: "Herramienta IA",
     myRole: "Mi Rol",
-    myRoleVal: "Diseñadora de Producto",
+    myRoleVal: "Diseñadora de Producto | Diseñador UI/UX",
     year: "Año",
     yearVal: "2025",
     overviewLabel: "Resumen",
@@ -119,7 +119,7 @@ const t = {
     niceToMeet: "Encantada de conocerte",
     bio: (
       <>
-        Diseñadora de producto con más de 4 años de experiencia creando productos digitales{" "}
+        Diseñador de producto con más de 4 años de experiencia creando productos digitales{" "}
         <strong>que equilibran objetivos de negocio, necesidades del usuario y calidad de diseño.</strong>
         <br /><br />
         Mi trayectoria combina estrategia de producto, UX, diseño visual e ilustración,{" "}
