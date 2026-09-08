@@ -7,11 +7,12 @@ import imgRectangle3 from "../imports/Portfolio-2/40f25a6ccd0e70ec894c190c93754a
 import imgOverviewAiDoc from "../imports/image.png";
 import imgOverviewDs from "../imports/image-1.png";
 import imgOverviewHotel from "../imports/image-3.png";
-import imgClientLogo1 from "../imports/5/50fc833a30cabcae57237d20bf1baecd645b2065.png";
-import imgClientLogo2 from "../imports/5/8abf8933a74b64026d3be80344c131e42cb99cd4.png";
-import imgClientBrisas from "../imports/5/2c90e21d887d8fcf058f60149b10f9e6b03e7710.png";
-import svgClient from "../imports/5/svg-504w19x73l";
-import { imgGroup as imgClientGroup } from "../imports/5/svg-fv5iu";
+import imgClientXID from "../imports/5/XID.png";
+import imgClientDOX from "../imports/5/DOX.png";
+import imgClientEdenred from "../imports/5/Edenred.png";
+import imgClientBrisas from "../imports/5/Brisas.png";
+import imgClientAltabix from "../imports/5/Altabix.png";
+import imgClientMera from "../imports/5/Mera.png";
 import pdfResume from "../imports/Resume_Abril_Rios.pdf";
 import pdfCV from "../imports/CV_Abril_Rios.pdf";
 
@@ -190,7 +191,7 @@ export default function App() {
       }}
     >
       {/* ── HEADER ── */}
-      <header className="sticky top-0 z-50 sm:flex flex-direction-column items-center justify-between px-[18px] md:px-[3%] py-5 w-full bg-white/5 backdrop-blur-md">
+      <header className="sticky top-0 z-50 sm:flex flex-direction-column items-center justify-between px-[18px] py-4 md:px-[3%]  md:py-5 w-full bg-white/5 backdrop-blur-md">
         {/* Logo */}
         <button onClick={() => goHome()} className="hidden sm:flex items-center gap-1 bg-transparent border-none cursor-pointer">
           <div className="h-[19px] relative shrink-0 w-[17px]">
@@ -324,7 +325,7 @@ export default function App() {
               </div>
 
           {/* Nav */}
-      <div className="flex sm:hidden gap-6 px-[6px] pt-5">
+      <div className="flex sm:hidden gap-6 px-[6px] pt-4">
         <button
           onClick={() => goHome(featuredRef)}
           className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
@@ -1170,7 +1171,7 @@ export default function App() {
           `,
         }}
       >
-        <div className="flex flex-col md:flex-row gap-12 md:gap-[156px] items-start md:items-center px-[18px] md:px-[15%] py-[68px]">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-[156px] items-start md:items-center px-[18px] md:px-[15%] py-[68px]">
           {/* Text */}
           <div className="flex flex-col gap-2 shrink-0">
             <p className="font-medium text-[#4425d5] text-[16px] tracking-[-0.8px] opacity-80">
@@ -1187,30 +1188,21 @@ export default function App() {
           </div>
 
           {/* Logos grid */}
-          <div className="grid grid-cols-3 gap-x-10 gap-y-10 items-center justify-items-center">
-            {/* Logo 1 + 2 */}
-            <div className="flex gap-2 items-center">
-              <div className="h-[32px] w-[37px] relative overflow-hidden">
-                <img alt="" className="absolute h-[100.4%] left-0 max-w-none top-[-0.2%] w-[283%]" src={imgClientLogo1} />
+          <div className="hidden sm:grid grid-cols-3 gap-x-10 gap-y-10 items-center justify-items-center">
+            {/* XID*/}
+              <div className="h-[38px] w-[140px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientXID} />
               </div>
-              <div className="h-[28px] w-[69px] relative">
-                <img alt="" className="absolute max-w-none object-bottom size-full" src={imgClientLogo2} />
-              </div>
-            </div>
 
             {/* Dox */}
-            <svg className="h-[28px] w-[122px]" fill="none" viewBox="0 0 122 28">
-              <path clipRule="evenodd" d={svgClient.p287b1500} fill="black" fillRule="evenodd" />
-              <path clipRule="evenodd" d={svgClient.p3aab200} fill="black" fillRule="evenodd" />
-              <path d={svgClient.p1c2a7200} fill="black" />
-              <path d={svgClient.p26b17e80} fill="#FF8B01" />
-              <path clipRule="evenodd" d={svgClient.p39c32b00} fill="#0D5DF8" fillRule="evenodd" />
-            </svg>
+              <div className="h-[34px] w-[140px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientDOX} />
+              </div>
 
             {/* Edenred */}
-            <svg className="h-[50px] w-[76px]" fill="none" viewBox="0 0 76 50">
-              <path clipRule="evenodd" d={svgClient.p28588380} fill="#F72717" fillRule="evenodd" />
-            </svg>
+              <div className="h-[60px] w-[100px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientEdenred} />
+              </div>
 
             {/* Grupo Brisas */}
             <div className="h-[20px] w-[160px] relative overflow-hidden">
@@ -1218,45 +1210,49 @@ export default function App() {
             </div>
 
             {/* Altabix */}
-            <div className="h-[22px] w-[133px] relative overflow-clip">
-              <div
-                className="absolute inset-0"
-                style={{ maskImage: `url("${imgClientGroup}")`, maskSize: "132.885px 21.378px", maskRepeat: "no-repeat", maskPosition: "-0.001px 0px" }}
-              >
-                <svg className="absolute inset-0 size-full" fill="none" viewBox="0 0 132.886 21.3825">
-                  <path d={svgClient.pf1b8570} fill="black" />
-                  <path d={svgClient.p17836980} fill="black" />
-                  <path d={svgClient.p2150fc80} fill="black" />
-                  <path d={svgClient.p3d339430} fill="black" />
-                  <path d={svgClient.p2b6bce00} fill="#25C9D1" />
-                  <path d={svgClient.p9cf5b00} fill="#25C9D1" />
-                  <path d={svgClient.p2ff54bc0} fill="#25C9D1" />
-                  <path d={svgClient.p3876e100} fill="#25C9D1" />
-                  <path d={svgClient.p33f11640} fill="#25C9D1" />
-                  <path d={svgClient.p34a5b500} fill="#25C9D1" />
-                  <path d={svgClient.p23aeff80} fill="black" />
-                  <path d={svgClient.p53bde32} fill="black" />
-                  <path d={svgClient.p3d514980} fill="black" />
-                </svg>
+              <div className="h-[25px] w-[160px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientAltabix} />
               </div>
-            </div>
 
             {/* Mera */}
-            <div className="h-[24px] w-[101px] relative overflow-clip">
-              <svg className="absolute inset-0 size-full" fill="none" viewBox="0 0 101.004 24.0011">
-                <path d={svgClient.p1e2c0200} fill="black" />
-                <path d={svgClient.p29dc2e00} fill="black" />
-                <path d={svgClient.p3dd29e00} fill="black" />
-                <path d={svgClient.pbca1800} fill="black" />
-                <path d={svgClient.pa3925a0} fill="black" />
-                <path d={svgClient.p261a72a8} fill="black" />
-                <path d={svgClient.p8c49d00} fill="black" />
-                <path d={svgClient.p24d36b00} fill="black" />
-                <path d={svgClient.p3b1ebc00} fill="black" />
-                <path d={svgClient.p9bb4fe0} fill="black" />
-              </svg>
-            </div>
+              <div className="h-[32px] w-[140px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientMera} />
+              </div>
           </div>
+
+          {/* Logos MOBILE */}
+          <div className="sm:hidden grid grid-cols-3 gap-x-5 gap-y-5 items-center justify-items-center">
+            {/* XID*/}
+              <div className="h-[25px] w-[90px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientXID} />
+              </div>
+
+            {/* Dox */}
+              <div className="h-[22px] w-[90px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientDOX} />
+              </div>
+
+            {/* Edenred */}
+              <div className="h-[60px] w-[90px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientEdenred} />
+              </div>
+
+            {/* Grupo Brisas */}
+            <div className="h-[16px] w-[130px] relative overflow-hidden">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientBrisas} />
+            </div>
+
+            {/* Altabix */}
+              <div className="h-[16px] w-[95px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientAltabix} />
+              </div>
+
+            {/* Mera */}
+              <div className="h-[19px] w-[80px] relative overflow-hidden">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientMera} />
+              </div>
+          </div>
+
         </div>
       </section>
 
