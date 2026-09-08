@@ -176,9 +176,11 @@ export default function App() {
     if (ref) setTimeout(() => ref.current?.scrollIntoView({ behavior: "smooth" }), 0);
   };
 
+  
   return (
+    
     <div
-      className="min-h-screen w-full font-['Inter',sans-serif] overflow-x-hidden"
+      className="min-h-screen w-full font-['Inter',sans-serif] overflow-x-visible"
       style={{
         backgroundImage: `
           url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 2224' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.44'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(23.1 9.317 -8.7353 21.973 6 0.000023056)'><stop stop-color='rgba(87,49,237,1)' offset='0'/><stop stop-color='rgba(108,75,239,0.875)' offset='0.125'/><stop stop-color='rgba(129,101,242,0.75)' offset='0.25'/><stop stop-color='rgba(171,152,246,0.5)' offset='0.5'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
@@ -188,7 +190,7 @@ export default function App() {
       }}
     >
       {/* ── HEADER ── */}
-      <header className="flex items-center justify-between px-[18px] md:px-[3%] py-5 w-full">
+      <header className="sticky top-0 z-50 flex items-center justify-between px-[18px] md:px-[3%] py-5 w-full bg-white/5 backdrop-blur-md">
         {/* Logo */}
         <button onClick={() => goHome()} className="flex items-center gap-1 bg-transparent border-none cursor-pointer">
           <div className="h-[19px] relative shrink-0 w-[17px]">
