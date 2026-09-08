@@ -190,9 +190,9 @@ export default function App() {
       }}
     >
       {/* ── HEADER ── */}
-      <header className="sticky top-0 z-50 flex items-center justify-between px-[18px] md:px-[3%] py-5 w-full bg-white/5 backdrop-blur-md">
+      <header className="sticky top-0 z-50 sm:flex flex-direction-column items-center justify-between px-[18px] md:px-[3%] py-5 w-full bg-white/5 backdrop-blur-md">
         {/* Logo */}
-        <button onClick={() => goHome()} className="flex items-center gap-1 bg-transparent border-none cursor-pointer">
+        <button onClick={() => goHome()} className="hidden sm:flex items-center gap-1 bg-transparent border-none cursor-pointer">
           <div className="h-[19px] relative shrink-0 w-[17px]">
             <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17 19">
               <g clipPath="url(#clip0_logo)">
@@ -247,7 +247,7 @@ export default function App() {
           </div>
 
           {/* Language switcher */}
-          <div className="flex items-center">
+          <div className="flex hidden md:block items-center">
             <button
               onClick={() => setLang("es")}
               className={`px-3 py-1.5 rounded-l-full text-[14px] tracking-[-0.14px] transition-colors ${
@@ -270,35 +270,89 @@ export default function App() {
             </button>
           </div>
         </nav>
-      </header>
 
-      {/* Mobile nav */}
-      <div className="flex sm:hidden gap-4 px-[18px] pb-2">
+        {/* MOBILE NAV */}
+              <div className="flex sm:hidden items-center justify-between w-full"> 
+                 {/* Logo */}
+        <button onClick={() => goHome()} className="flex items-center gap-1 bg-transparent border-none cursor-pointer">
+          <div className="h-[19px] relative shrink-0 w-[17px]">
+            <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17 19">
+              <g clipPath="url(#clip0_logo)">
+                <path d={svgPaths.p57f4be0} fill="black" />
+                <path d={svgPaths.p1b8e5300} fill="black" />
+                <path d={svgPaths.pd1fb0f0} fill="black" />
+                <path d={svgPaths.p122416c0} fill="black" />
+                <path d={svgPaths.p12f6e380} fill="black" />
+              </g>
+              <defs>
+                <clipPath id="clip0_logo">
+                  <rect fill="white" height="19" width="17" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+          <span
+            className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[22px] text-black tracking-[-0.44px] leading-none"
+          >
+            Abril R.
+          </span>
+        </button>
+
+                {/* Language switcher */}
+          <div className="flex items-center">
+            <button
+              onClick={() => setLang("es")}
+              className={`px-3 py-1.5 rounded-l-full text-[14px] tracking-[-0.14px] transition-colors ${
+                lang === "es"
+                  ? "bg-[#4425d5] text-white font-semibold"
+                  : "bg-[#efeef3] text-[#504e51]"
+              }`}
+            >
+              ES
+            </button>
+            <button
+              onClick={() => setLang("en")}
+              className={`px-3 py-1.5 rounded-r-full text-[14px] tracking-[-0.14px] transition-colors ${
+                lang === "en"
+                  ? "bg-[#4425d5] text-white font-semibold"
+                  : "bg-[#efeef3] text-[#504e51]"
+              }`}
+            >
+              EN
+            </button>
+          </div>
+              </div>
+
+          {/* Nav */}
+      <div className="flex sm:hidden gap-6 px-[6px] pt-5">
         <button
           onClick={() => goHome(featuredRef)}
-          className="text-[14px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.work}
         </button>
         <button
           onClick={() => goHome(collaborationsRef)}
-          className="text-[14px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.collaborations}
         </button>
         <button
           onClick={() => goHome(aboutRef)}
-          className="text-[14px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.about}
         </button>
         <button
           onClick={() => setActivePage("playground")}
-          className="text-[14px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.playground}
         </button>
       </div>
+      </header>
+
+      
 
       {activePage === "home" && <>
 
