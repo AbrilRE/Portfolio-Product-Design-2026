@@ -1238,7 +1238,7 @@ export default function App() {
               </div>
 
             {/* Grupo Brisas */}
-            <div className="h-[16px] w-[130px] relative overflow-hidden">
+            <div className="h-[15px] w-[122px] relative ">
               <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientBrisas} />
             </div>
 
@@ -1281,11 +1281,7 @@ export default function App() {
           {/* Photo + bio */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-12 flex-1">
             {/* Photo */}
-            <div className="rounded-[18px] overflow-hidden shrink-0 w-[200px] h-[240px] sm:w-[240px] sm:h-[280px] md:w-[284px] md:h-[294px] relative"
-              style={{
-                background: "linear-gradient(135deg, #ece8fa 0%, #d3cae5 100%)"
-              }}
-            >
+            <div className="rounded-[18px] overflow-hidden shrink-0 w-[200px] h-[240px] sm:w-[240px] sm:h-[280px] md:w-[284px] md:h-[294px] relative">
               <img
                 alt="Abril Ríos"
                 className="absolute inset-0 w-full h-full object-cover object-center"
@@ -1295,10 +1291,12 @@ export default function App() {
             </div>
 
             {/* Bio + button */}
-            <div className="flex flex-col gap-4 flex-1">
+            <div className="flex flex-col gap-5 flex-1">
               <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
                 {tx.bio}
               </p>
+
+              <div class="flex items-center justify-end w-full"> 
               <a
                 href={lang === "en" ? pdfResume : pdfCV}
                 download={lang === "en" ? "Resume_Abril_Rios.pdf" : "CV_Abril_Rios.pdf"}
@@ -1311,6 +1309,8 @@ export default function App() {
                   <path d={svgPaths.p2d672d80} fill="#5731ED" />
                 </svg>
               </a>
+              </div>
+              
             </div>
           </div>
         </div>
@@ -1318,7 +1318,7 @@ export default function App() {
 
       {/* ── FOOTER ── */}
       <footer className="w-full">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] px-[0px] pt-[32px] pb-[64px]">
+        <div className="flex flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] px-[0px] pt-[32px] pb-[64px]">
           <p className="font-bold text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
             {tx.footerCta}
           </p>
@@ -1390,7 +1390,7 @@ export default function App() {
 
           {/* Footer */}
           <footer className="w-full">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] pt-[32px] pb-[64px]">
+            <div className="flex flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] pt-[32px] pb-[64px]">
               <p className="font-bold text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
                 {tx.footerCta}
               </p>
