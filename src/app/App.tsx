@@ -335,25 +335,25 @@ export default function App() {
       <div className="flex sm:hidden gap-6 px-[6px] pt-4">
         <button
           onClick={() => goHome(featuredRef)}
-          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[15px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.work}
         </button>
         <button
           onClick={() => goHome(collaborationsRef)}
-          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[15px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.collaborations}
         </button>
         <button
           onClick={() => goHome(aboutRef)}
-          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[15px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.about}
         </button>
         <button
           onClick={() => setActivePage("playground")}
-          className="text-[16px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
+          className="text-[15px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.playground}
         </button>
