@@ -1274,7 +1274,7 @@ export default function App() {
                 </div> 
 
                 <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
-                  ResearchA
+                  Research
                 </p>
               </div>
 
