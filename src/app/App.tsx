@@ -1178,7 +1178,7 @@ export default function App() {
        {/* Gradient MOBILE*/}  
       <div class="sm:hidden absolute -bottom-20 -right-30 w-[270px] h-[270px] bg-[#cd1df0]/45 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-        <div className="relative flex px-[18px] md:px-[11%] py-[68px]  z-50">
+        <div className="relative flex px-[18px] md:px-[11%] py-[68px]  z-2">
           {/* Text */}
           <div className="flex flex-col sm:flex-row items-center justify-between shrink-0 px-[24px] py-[16px] rounded-[24px] w-full" 
           style={{
