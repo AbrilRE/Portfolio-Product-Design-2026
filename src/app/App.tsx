@@ -7,14 +7,19 @@ import imgRectangle3 from "../imports/Portfolio-2/40f25a6ccd0e70ec894c190c93754a
 import imgOverviewAiDoc from "../imports/image.png";
 import imgOverviewDs from "../imports/image-1.png";
 import imgOverviewHotel from "../imports/image-3.png";
-import imgClientXID from "../imports/5/XID.png";
-import imgClientDOX from "../imports/5/DOX.png";
-import imgClientEdenred from "../imports/5/Edenred.png";
-import imgClientBrisas from "../imports/5/Brisas.png";
-import imgClientAltabix from "../imports/5/Altabix.png";
-import imgClientMera from "../imports/5/Mera.png";
+import imgClientXID from "../imports/Clients/XID.png";
+import imgClientDOX from "../imports/Clients/DOX.png";
+import imgClientEdenred from "../imports/Clients/Edenred.png";
+import imgClientBrisas from "../imports/Clients/Brisas.png";
+import imgClientAltabix from "../imports/Clients/Altabix.png";
+import imgClientMera from "../imports/Clients/Mera.png";
 import pdfResume from "../imports/Resume_Abril_Rios.pdf";
 import pdfCV from "../imports/CV_Abril_Rios.pdf";
+
+import svgSearch from "../imports/Icons/search.svg";
+import svgHighfi from "../imports/Icons/high-fi.svg";
+import svgSitemap from "../imports/Icons/sitemap.svg";
+import svgWireframes from "../imports/Icons/wireframes.svg";
 
 // ─── Translations ────────────────────────────────────────────────────────────
 const t = {
@@ -57,6 +62,7 @@ const t = {
     contextChallenge: "Context & Challenge",
     process: "Process",
     outcomeLabel: "Outcome & Learnings",
+    exploreOnBehance: "Explore on Behance",
     aboutLabel: "About",
     niceToMeet: "Nice to meet you",
     bio: (
@@ -73,7 +79,7 @@ const t = {
     footerCta: "Let's create something meaningful.",
     playgroundBeyond: "Beyond the Work",
     playgroundHeading: "Playground",
-    playgroundDesc: "Concepts, experiments, and practice projects created to explore ideas, refine skills, and",
+    playgroundDesc: "Freelance Concepts, experiments, and practice projects created to explore ideas, refine skills, and",
     playgroundDescBold: "stay creatively sharp.",
     playgroundEmpty: "Projects coming soon.",
   },
@@ -116,6 +122,7 @@ const t = {
     contextChallenge: "Contexto y Desafío",
     process: "Proceso",
     outcomeLabel: "Resultados y Aprendizajes",
+    exploreOnBehance: "Explorar Behance",
     aboutLabel: "Sobre mí",
     niceToMeet: "Encantada de conocerte",
     bio: (
@@ -132,7 +139,7 @@ const t = {
     footerCta: "Creemos algo significativo juntos.",
     playgroundBeyond: "Más allá del trabajo",
     playgroundHeading: "Exploración",
-    playgroundDesc: "Conceptos, experimentos y proyectos de práctica creados para explorar ideas, refinar habilidades y",
+    playgroundDesc: "Conceptos freelance, experimentos y proyectos de práctica creados para explorar ideas, refinar habilidades y",
     playgroundDescBold: "mantener la creatividad activa.",
     playgroundEmpty: "Proyectos próximamente.",
   },
@@ -1160,18 +1167,192 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── BEHANCE ── */}
+                    <section
+        ref={collaborationsRef}
+        className="w-full relative overflow-hidden"
+      >
+         {/* Gradient */}  
+      <div class="hidden sm:block absolute top-15 -right-30 w-[270px] h-[270px] bg-[#cd1df0]/45 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+       {/* Gradient MOBILE*/}  
+      <div class="sm:hidden absolute -bottom-20 -right-30 w-[270px] h-[270px] bg-[#cd1df0]/45 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+        <div className="relative flex px-[18px] md:px-[11%] py-[68px]  z-50">
+          {/* Text */}
+          <div className="flex flex-col sm:flex-row items-center justify-between shrink-0 px-[24px] py-[16px] rounded-[24px] w-full" 
+          style={{
+            background:`rgba(249, 247, 251, 0.32)`,
+            border: `1px solid rgba(68, 37, 213, 0.08)`
+            ,
+            }}>
+            <p className="font-bold text-[#504e51] text-[16px] leading-[1.42] max-w-[392px]">
+              {lang === "en"
+                ? "A closer look at my design process."
+                : "Un vistazo más detallado a mi proceso de diseño."}
+            </p>
+
+            {/* ICONS */}   
+            <div className="hidden sm:flex  flex-row items-center gap-6">
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[19px] w-[19px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgSearch} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  Research
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[19px] w-[24px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgSitemap} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  Site maps
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[18px] w-[23px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgWireframes} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  Wireframes
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[19px] w-[22px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgHighfi} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  High-fi
+                </p>
+              </div>
+
+            </div>
+
+            {/* ICONS MOBILE*/}   
+            <div className="sm:hidden grid grid-cols-2 gap-4 mt-5 mb-5">
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[19px] w-[19px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgSearch} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  ResearchA
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[19px] w-[24px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgSitemap} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  Site maps
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[18px] w-[23px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgWireframes} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  Wireframes
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="p-[8px] rounded-[8px]"
+                style={{
+                border: `1px solid #D4D1EC`
+                ,
+                }}>
+                  <div className="h-[19px] w-[22px] relative overflow-hidden">
+                    <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgHighfi} />
+                  </div>
+                </div> 
+
+                <p class="text-[#504E51] text-[14px] leading-[1.42] max-w-[392px]">
+                  High-fi
+                </p>
+              </div>
+
+            </div>
+
+            <button class="flex items-center gap-2 cursor-pointer bg-transparent border-none hover:opacity-70 transition-opacity">
+                  <span class="font-semibold text-[#4425d5] text-[14px] tracking-[-0.14px]">
+                    <a href="https://www.behance.net/abrilrios" target="_blank" rel="noopener noreferrer"> {tx.exploreOnBehance} </a>
+                  </span>
+                  <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#4425D5"></path>
+                    </svg>
+                  </div>
+            </button>
+          </div>
+        </div>
+
+      </section>
+
       {/* ── SELECTED CLIENTS ── */}
       <section
         ref={collaborationsRef}
-        className="w-full border-t border-[#efeef3] relative"
-        style={{
-          backgroundImage: `
-            url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 299' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.10'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-19.85 13.5 -0.564 -17.766 1359.5 6)'><stop stop-color='rgba(87,49,237,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
-            url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 299' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.16'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-41.5 11.5 -13.05 -47.094 1366 17)'><stop stop-color='rgba(205,29,240,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>")
-          `,
-        }}
+        className="w-full relative overflow-hidden"
       >
-        <div className="flex flex-col md:flex-row gap-6 md:gap-[156px] items-start md:items-center px-[18px] md:px-[15%] py-[68px]">
+        {/* Gradient */}  
+      <div class="absolute rotate-[30deg] top-25 -right-25 w-[260px] h-[100px] bg-[#5731ed]/32 rounded-full blur-[90px] pointer-events-none z-0"></div>
+      <div class="absolute -top-40 -right-25 w-[270px] h-[270px] bg-[#cd1df0]/35 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+        <div className="flex flex-col md:flex-row gap-6 md:gap-[156px] items-start md:items-center px-[18px] md:px-[12%] py-[68px] z-10">
           {/* Text */}
           <div className="flex flex-col gap-2 shrink-0">
             <p className="font-medium text-[#4425d5] text-[16px] tracking-[-0.8px] opacity-80">
@@ -1322,7 +1503,7 @@ export default function App() {
           <p className="font-bold text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
             {tx.footerCta}
           </p>
-          <a href="https://www.linkedin.com/in/abril-rios-06301a201/" className="flex  items-center gap-2">
+          <a href="https://www.linkedin.com/in/abril-rios-06301a201/" target="_blank" rel="noopener noreferrer" className="flex  items-center gap-2">
             <svg className="size-[24px]" fill="none" viewBox="0 0 24 24">
               <path d={svgPaths.p33a02600} fill="#504E51" />
             </svg>
@@ -1394,7 +1575,7 @@ export default function App() {
               <p className="font-bold text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
                 {tx.footerCta}
               </p>
-              <a href="https://www.linkedin.com/in/abril-rios-06301a201/" className="flex items-center gap-2">
+              <a href="https://www.linkedin.com/in/abril-rios-06301a201/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 <svg className="size-[24px]" fill="none" viewBox="0 0 24 24">
                   <path d={svgPaths.p33a02600} fill="#504E51" />
                 </svg>
