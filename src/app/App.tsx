@@ -1,3 +1,4 @@
+import image_hero from '@/imports/BGHero.png'
 import image_IMG from '@/imports/IMG.png'
 import image_Mock_1 from '@/imports/Mock-1.png'
 import image_dox_mock from '@/imports/dox_mock.png'
@@ -16,6 +17,7 @@ import imgClientMera from "../imports/Clients/Mera.png";
 import pdfResume from "../imports/Resume_Abril_Rios.pdf";
 import pdfCV from "../imports/CV_Abril_Rios.pdf";
 
+import svgLogo from "../imports/Icons/Logo.svg";
 import svgSearch from "../imports/Icons/search.svg";
 import svgHighfi from "../imports/Icons/high-fi.svg";
 import svgSitemap from "../imports/Icons/sitemap.svg";
@@ -27,21 +29,21 @@ const t = {
     work: "Work",
     about: "About",
     playground: "Playground",
-    name: "Abril Ríos",
+    name: "Designing digital  experiences, with a focus on usability and visual coherence.",
     role: "Product Designer | UI/UX Designer ",
-    tagline: "Designing digital products through strategy, usability, and visual thinking.",
-    location: "Hidalgo",
+    tagline: "4 years of experience in UI/UX, with background in Computer Engineering. I turn ideas into functional and meaningful products.",
+    location: "Mexico",
+    faster: "Faster interface creation",
+    designsys: "Design Systems delivered",
+    devtime: "Less dev hand-off time",
     scrollExplore: "Scroll to explore",
     viewProjects: "View Projects",
     featuredWork: "Featured Work",
     selectedProjects: "Selected Projects",
     confidentiality: "Some professional work cannot be shared publicly due to confidentiality agreements.",
-    card1Title: "AI Documentation Platform",
-    card1Desc: "Designing a scalable documentation experience for AI-powered workflows.",
+    card1Title: "DOX AI",
     card2Title: "Hotel Management Platform",
-    card2Desc: "Streamlining hotel operations through a centralized management platform.",
-    card3Title: "Enterprise Design System",
-    card3Desc: "Building a scalable design foundation to support complex products.",
+    card3Title: "Design System",
     aiDocBadge: "AI DOCUMENTATION TOOL",
     aiDocHeading: "Transforming code changes into actionable documentation through AI.",
     aiDocDesc: "Designed to automate software documentation by analyzing development workflows and helping engineering teams maintain accurate and scalable documentation.",
@@ -64,17 +66,17 @@ const t = {
     outcomeLabel: "Outcome & Learnings",
     exploreOnBehance: "Explore on Behance",
     aboutLabel: "About",
-    niceToMeet: "Nice to meet you",
+    niceToMeet: "I like understanding how things work.",
     bio: (
       <>
-        Product designer with 4+ years of experience creating digital products{" "}
-        <strong>that balance business goals, user needs, and design quality.</strong>
-        <br /><br />
-        My background combines product strategy, UX, visual design and illustration,{" "}
-        <strong>allowing me to approach problems from both analytical and creative perspectives.</strong>
-      </>
+        I'm a Product Designer with a background in Computer Engineering and 4 years of experience designing digital products, from enterprise platforms and SaaS to mobile experiences.
+        <br></br> <br></br>
+        I enjoy taking complex requirements, finding what actually matters, and turning them into experiences that feel clear, useful, and intentional.
+        <br></br> <br></br>
+        Outside product design, I also work with illustration, visual content, and brand assets: because good design doesn't always live inside an interface.
+        </>
     ),
-    collaborations: "Collaborations",
+    collaborations: "Visual Design",
     downloadResume: "Download Resume",
     footerCta: "Let's create something meaningful.",
     playgroundBeyond: "Beyond the Work",
@@ -87,22 +89,22 @@ const t = {
     work: "Trabajo",
     about: "Sobre mí",
     playground: "Exploración",
-    name: "Abril Ríos",
+    name: "Diseñando experiencias digitales, con un enfoque en usabilidad y coherencia visual.",
     role: "Diseñador de Producto | Diseñador UI/UX",
-    tagline: "Diseñando productos digitales a través de estrategia, usabilidad y pensamiento visual.",
-    location: "Hidalgo",
+    tagline: "4 años de experiencia en UI/UX, con formación en Ingeniería Informática. Transformo ideas en productos funcionales y significativos.",
+    location: "México",
+    faster: "Creación rápida de interfaces",
+    designsys: "Sistemas de diseño entregados",
+    devtime: "Menos tiempo de traspaso a desarrollo",
     scrollExplore: "Desplázate para explorar",
     viewProjects: "Ver Proyectos",
     featuredWork: "Trabajo Destacado",
     selectedProjects: "Proyectos Seleccionados",
     confidentiality: "Algunos trabajos profesionales no pueden compartirse públicamente debido a acuerdos de confidencialidad.",
-    card1Title: "Plataforma de Documentación IA",
-    card1Desc: "Diseñando una experiencia de documentación escalable para flujos de trabajo impulsados por IA.",
+    card1Title: "DOX AI",
     card2Title: "Plataforma de Gestión Hotelera",
-    card2Desc: "Optimizando las operaciones hoteleras mediante una plataforma de gestión centralizada.",
-    card3Title: "Sistema de Diseño Empresarial",
-    card3Desc: "Construyendo una base de diseño escalable para soportar productos complejos.",
-    aiDocBadge: "HERRAMIENTA DE DOCUMENTACIÓN IA",
+    card3Title: "Sistema de Diseño",
+   aiDocBadge: "HERRAMIENTA DE DOCUMENTACIÓN IA",
     aiDocHeading: "Transformando cambios de código en documentación accionable mediante IA.",
     aiDocDesc: "Diseñada para automatizar la documentación de software analizando flujos de trabajo de desarrollo y ayudando a los equipos de ingeniería a mantener una documentación precisa y escalable.",
     challengeTitle: "El desafío",
@@ -124,17 +126,21 @@ const t = {
     outcomeLabel: "Resultados y Aprendizajes",
     exploreOnBehance: "Explorar Behance",
     aboutLabel: "Sobre mí",
-    niceToMeet: "Encantada de conocerte",
+    niceToMeet: "Me gusta entender cómo funcionan las cosas.",
     bio: (
       <>
-        Diseñador de producto con más de 4 años de experiencia creando productos digitales{" "}
-        <strong>que equilibran objetivos de negocio, necesidades del usuario y calidad de diseño.</strong>
-        <br /><br />
-        Mi trayectoria combina estrategia de producto, UX, diseño visual e ilustración,{" "}
-        <strong>lo que me permite abordar los problemas desde perspectivas analíticas y creativas.</strong>
-      </>
+        Soy diseñador de producto con formación en ingeniería informática y 4 años de experiencia diseñando productos digitales, desde plataformas empresariales y SaaS hasta experiencias móviles.
+
+<br></br> <br></br>
+
+Disfruto tomando requisitos complejos, descubriendo lo que realmente importa y transformándolos en experiencias claras, útiles e intencionadas.
+
+<br></br> <br></br>
+
+Además del diseño de producto, también trabajo con ilustración, contenido visual y activos de marca: porque el buen diseño no siempre reside dentro de una interfaz.
+</>
     ),
-    collaborations: "Colaboraciones",
+    collaborations: "Diseño Visual ",
     downloadResume: "Descargar CV",
     footerCta: "Creemos algo significativo juntos.",
     playgroundBeyond: "Más allá del trabajo",
@@ -187,41 +193,17 @@ export default function App() {
   
   return (
     
-    <div
-      className="min-h-screen w-full font-['Inter',sans-serif] overflow-x-visible"
-      style={{
-        backgroundImage: `
-          url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 2224' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.44'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(23.1 9.317 -8.7353 21.973 6 0.000023056)'><stop stop-color='rgba(87,49,237,1)' offset='0'/><stop stop-color='rgba(108,75,239,0.875)' offset='0.125'/><stop stop-color='rgba(129,101,242,0.75)' offset='0.25'/><stop stop-color='rgba(171,152,246,0.5)' offset='0.5'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
-          url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 2224' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.29'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(21.3 28.707 -17.996 13.547 0.0000047194 117.34)'><stop stop-color='rgba(205,29,240,1)' offset='0'/><stop stop-color='rgba(211,57,242,0.875)' offset='0.125'/><stop stop-color='rgba(218,85,244,0.75)' offset='0.25'/><stop stop-color='rgba(230,142,248,0.5)' offset='0.5'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
-          linear-gradient(90deg, rgb(255,255,255) 0%, rgb(255,255,255) 100%)
-        `,
-      }}
-    >
+    <div className="min-h-screen w-full font-['Inter',sans-serif] overflow-x-visible">
       {/* ── HEADER ── */}
       <header className="sticky top-0 z-50 sm:flex flex-direction-column items-center justify-between px-[18px] py-4 md:px-[3%]  md:py-5 w-full bg-white/5 backdrop-blur-md">
         {/* Logo */}
         <button onClick={() => goHome()} className="hidden sm:flex items-center gap-1 bg-transparent border-none cursor-pointer">
           <div className="h-[19px] relative shrink-0 w-[17px]">
-            <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 17 19">
-              <g clipPath="url(#clip0_logo)">
-                <path d={svgPaths.p57f4be0} fill="black" />
-                <path d={svgPaths.p1b8e5300} fill="black" />
-                <path d={svgPaths.pd1fb0f0} fill="black" />
-                <path d={svgPaths.p122416c0} fill="black" />
-                <path d={svgPaths.p12f6e380} fill="black" />
-              </g>
-              <defs>
-                <clipPath id="clip0_logo">
-                  <rect fill="white" height="19" width="17" />
-                </clipPath>
-              </defs>
-            </svg>
+            <div className="h-[25px] w-[120px] relative">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgLogo} />
+            </div>
           </div>
-          <span
-            className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[22px] text-black tracking-[-0.44px] leading-none"
-          >
-            Abril R.
-          </span>
+          
         </button>
 
         {/* Nav */}
@@ -366,30 +348,18 @@ export default function App() {
 
       {/* ── HERO ── */}
       <section
-        className="relative w-full min-h-[440px] md:min-h-[546px]"
-        style={{
-          backgroundImage: `
-            url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 546' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.24'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-11.779 -10.537 8.2827 -9.2591 1366 529)'><stop stop-color='rgba(87,49,237,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
-            url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 546' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.25'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-24.9 -24.9 22.28 -22.28 1315.5 474.5)'><stop stop-color='rgba(205,29,240,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>")
-          `,
-        }}
-      >
-        <div className="flex flex-col justify-between h-full gap-8 px-[18px] md:px-[8%] py-[104px]">
+        className="relative w-full min-h-[440px] md:min-h-[546px]">
+        <div className="flex flex-col justify-between h-full gap-8 px-[18px] md:px-[6%] py-[104px]">
           {/* Content */}
-          <div className="flex flex-col gap-5 md:gap-6">
+          <div className="flex flex-col gap-5 md:gap-6 z-1">
             <div className="flex flex-col gap-4 md:gap-5">
-              <p className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[60px] sm:text-[80px] md:text-[98px] text-black tracking-[-1.96px] leading-none">
-                {tx.name}
-              </p>
-              <p className="font-medium text-[#4425d5] text-[18px] md:text-[24px] tracking-[-1.2px]">
+            
+            <div class="flex gap-4">
+               {/* Role */}
+             <p className="font-medium text-[#4425d5] text-[16px] md:text-[18px] tracking-[-1.2px]">
                 {tx.role}
               </p>
-              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
-                {tx.tagline}
-              </p>
-            </div>
-
-            {/* Location */}
+              {/* Location */}
             <div className="flex items-center gap-2">
               <div className="relative size-[16px] shrink-0">
                 <svg className="block size-full" fill="none" viewBox="0 0 12.167 14.833">
@@ -412,19 +382,52 @@ export default function App() {
               <span className="text-[#504e51] text-[14px] tracking-[-0.14px]">{tx.location}</span>
             </div>
 
-            {/* View Projects button */}
-            <button
-              onClick={() => scrollTo(featuredRef)}
-              className="group self-start flex items-center gap-2 px-8 py-4 rounded-[26px] border border-[rgba(87,49,237,0.18)] bg-[rgba(87,49,237,0.03)] hover:bg-[rgba(87,49,237,0.10)] transition-colors"
-            >
-              <span className="text-[#5731ed] text-[14px] font-semibold tracking-[-0.14px] whitespace-nowrap">
-                {tx.viewProjects}
-              </span>
-              <div className="size-[24px] rotate-90">
-                <ArrowIcon color="#5731ED" />
-              </div>
-            </button>
+            </div>
+           
+          {/* HERO */}
+              <p className="font-['Cormorant_Garamond',serif] font-bold text-[32px] sm:text-[32px] md:text-[42px] text-black tracking-[-1.96px] leading-none max-w-[550px]">
+                {tx.name}
+              </p>
+              
+              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+                {tx.tagline}
+              </p>
+            </div>
           </div>
+
+         {/* BG Hero */}
+          <img class="top-6 right-5 absolute w-[632px] h-[562px] pointer-events-none z-0" src={image_hero} >
+            </img>
+
+          <div class="flex justify-between mt-10 z-1">
+             {/* STATS */}
+            <div class="flex gap-6">
+              <div>
+                <p className="text-[#4425D5] text-[15px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
+                 40% 
+              </p>
+              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+                 {tx.faster} 
+              </p>
+              </div>
+              <div>
+                <p className="text-[#4425D5] text-[15px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
+                 +4
+              </p>
+              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+                 {tx.designsys} 
+              </p>
+              </div>
+              <div>
+                <p className="text-[#4425D5] text-[15px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
+                 25%
+              </p>
+              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+                 {tx.devtime} 
+              </p>
+              </div>
+            </div>
+
 
           {/* Scroll hint */}
           <div className="flex items-center justify-end gap-2">
@@ -433,97 +436,60 @@ export default function App() {
               <ArrowIcon color="#4425D5" />
             </div>
           </div>
+          </div>
         </div>
       </section>
 
       {/* ── FEATURED WORK ── */}
-      <section
-        ref={featuredRef}
-        className="w-full border-t border-b border-[#efeef3]"
-      >
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-[10%] lg:gap-[126px] px-[18px] md:px-[8%] py-[70px]">
+      <section ref={featuredRef} className="w-full ">
+
+       {/* GLOW */}
+      <div class="hidden absolute sm:grid rotate-[30deg] top-105 -left-25 w-[260px] h-[260px] bg-[#CD1DF0]/18 rounded-full blur-[100px] pointer-events-none z-0"></div>
+      
+        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] py-[48px]">
           {/* Left label */}
           <div className="flex flex-col gap-2 shrink-0 mx-[0px] mt-[0px] mb-[16px]">
             <p className="font-medium text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
               {tx.featuredWork}
             </p>
-            <p className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] text-black tracking-[-0.96px] leading-none max-w-[180px]">
+            <p className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] text-black tracking-[-0.96px] leading-none">
               {tx.selectedProjects}
             </p>
-            <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] max-w-[240px]">
+            <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
               {tx.confidentiality}
             </p>
           </div>
 
           {/* Cards */}
-          <div className="flex flex-col sm:flex-row gap-4 flex-1 w-full">
+          <div className="flex flex-row flex-wrap gap-4 flex-1 w-full">
             {/* Card 1 — AI Documentation Platform */}
             <button
               onClick={() => openProject("ai-doc")}
-              className="bg-[#fefdff] flex-1 flex flex-row sm:flex-col rounded-[8px] border border-[#efeef3] shadow-[0px_0px_12.7px_-2px_rgba(2,2,2,0.07)] overflow-hidden text-left cursor-pointer hover:shadow-md transition-shadow"
+              className="bg-[#F9F7FB]/48 py-3 px-6 flex items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
             >
-              <div className="w-[120px] shrink-0 sm:w-full sm:h-[169px] relative overflow-hidden self-stretch">
-                <img alt="" className="absolute inset-0 w-full h-full object-cover" src={image_dox_mock} />
-              </div>
-              <div className="p-4 flex flex-col gap-2 flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
+                <span className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
                     {tx.card1Title}
-                  </span>
-                  <div className="size-[20px] rotate-90 shrink-0">
-                    <ArrowIcon color="#5731ED" />
-                  </div>
-                </div>
-                <p className="text-[#504e51] text-[13px] md:text-[14px] leading-[1.42] tracking-[-0.7px]">
-                  {tx.card1Desc}
-                </p>
-              </div>
+                </span>
             </button>
 
             {/* Card 2 — Hotel Management Platform */}
             <button
               onClick={() => openProject("hotel")}
-              className="bg-[#fefdff] flex-1 flex flex-row sm:flex-col rounded-[8px] border border-[#efeef3] shadow-[0px_0px_12.7px_-2px_rgba(2,2,2,0.07)] overflow-hidden text-left cursor-pointer hover:shadow-md transition-shadow"
+              className="bg-[#F9F7FB]/48 py-3 px-6 flex items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
             >
-              <div className="w-[120px] shrink-0 sm:w-full sm:h-[169px] relative overflow-hidden self-stretch bg-[#d9d9d9]">
-                <img alt="" className="absolute inset-0 w-full h-full object-cover" src={image_Mock_1} />
-              </div>
-              <div className="p-4 flex flex-col gap-2 flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
-                    {tx.card2Title}
-                  </span>
-                  <div className="size-[20px] rotate-90 shrink-0">
-                    <ArrowIcon color="#5731ED" />
-                  </div>
-                </div>
-                <p className="text-[#504e51] text-[13px] md:text-[14px] leading-[1.42] tracking-[-0.7px]">
-                  {tx.card2Desc}
-                </p>
-              </div>
+                <span  className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
+                  {tx.card2Title}
+                </span>
             </button>
 
             {/* Card 3 — Enterprise Design System */}
             <button
               onClick={() => openProject("design-system")}
-              className="bg-[#fefdff] flex-1 flex flex-row sm:flex-col rounded-[8px] border border-[#efeef3] shadow-[0px_0px_12.7px_-2px_rgba(2,2,2,0.07)] overflow-hidden text-left cursor-pointer hover:shadow-md transition-shadow"
+              className="bg-[#F9F7FB]/48 flex py-3 px-6 items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
             >
-              <div className="w-[120px] shrink-0 sm:w-full sm:h-[169px] relative overflow-hidden self-stretch">
-                <img alt="" className="absolute inset-0 w-full h-full object-cover" src={imgRectangle3} />
-              </div>
-              <div className="p-4 flex flex-col gap-2 flex-1">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
-                    {tx.card3Title}
-                  </span>
-                  <div className="size-[20px] rotate-90 shrink-0">
-                    <ArrowIcon color="#5731ED" />
-                  </div>
-                </div>
-                <p className="text-[#504e51] text-[13px] md:text-[14px] leading-[1.42] tracking-[-0.7px]">
-                  {tx.card3Desc}
-                </p>
-              </div>
+              <span  className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
+                  {tx.card3Title}
+                </span>
             </button>
           </div>
         </div>
@@ -538,7 +504,7 @@ export default function App() {
             backgroundImage: `url("data:image/svg+xml;utf8,<svg viewBox='0 0 1017 546' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.09'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-28.15 27.7 -22.761 -23.131 831.5 136.5)'><stop stop-color='rgba(205,29,240,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>")`,
           }}
         >
-          <div className={`flex flex-col justify-between h-full gap-10 min-h-[400px] px-[18px] md:px-[5%] pt-[70px] ${activeTab === "overview" ? "pb-[66%] sm:pb-[70px]" : "pb-[70px]"}`}>
+          <div className={`flex flex-col justify-between h-full gap-10 min-h-[400px] px-[18px] md:px-[7%] pt-[70px] ${activeTab === "overview" ? "pb-[66%] sm:pb-[70px]" : "pb-[70px]"}`}>
 
             {/* ── HOTEL OVERVIEW ── */}
             {activeProject === "hotel" && activeTab === "overview" && (
@@ -1079,18 +1045,8 @@ export default function App() {
 
         {/* Right: sidebar */}
         <div className="bg-[#f9f7fb] w-full lg:w-[300px] xl:w-[349px] shrink-0">
-          <div className="flex flex-col gap-8 px-6 md:px-12 lg:px-12 py-8 md:py-[70px] h-full">
-            {/* Back to projects */}
-            <button
-              onClick={() => scrollTo(featuredRef)}
-              className="flex items-center gap-2 cursor-pointer bg-transparent border-none self-start hover:opacity-70 transition-opacity"
-            >
-              <div className="size-[24px] -rotate-90">
-                <ArrowIcon color="#4425D5" />
-              </div>
-              <span className="text-[#4425d5] text-[14px] tracking-[-0.14px]">{tx.backToProjects}</span>
-            </button>
-
+          <div className="flex flex-col gap-8 px-6 md:px-10 lg:px-10 py-8 md:py-[70px] h-full">
+            
             {/* Project nav */}
             <div className="flex flex-col gap-2">
               <p className="font-semibold text-[18px] text-black tracking-[-0.36px]">
@@ -1100,6 +1056,7 @@ export default function App() {
                   ? (lang === "en" ? "Hotel Management Platform" : "Plataforma de Gestión Hotelera")
                   : (lang === "en" ? "Enterprise Design System" : "Sistema de Diseño Empresarial")}
               </p>
+              <p class="font-semibold text-[#504E51] text-[16px] tracking-[-0.8px] opacity-80"> Project menu</p>
               {(activeProject === "hotel"
                 ? [
                     { key: "overview" as const, label: tx.overviewLabel },
@@ -1178,7 +1135,7 @@ export default function App() {
        {/* Gradient MOBILE*/}  
       <div class="sm:hidden absolute -bottom-20 -right-30 w-[270px] h-[270px] bg-[#cd1df0]/45 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-        <div className="relative flex px-[18px] md:px-[11%] py-[68px]  z-2">
+        <div className="relative flex px-[18px] md:px-[6%] py-[68px]  z-2">
           {/* Text */}
           <div className="flex flex-col sm:flex-row items-center justify-between shrink-0 px-[24px] py-[16px] rounded-[24px] w-full" 
           style={{
@@ -1352,7 +1309,7 @@ export default function App() {
       <div class="absolute rotate-[30deg] top-25 -right-25 w-[260px] h-[100px] bg-[#5731ed]/32 rounded-full blur-[90px] pointer-events-none z-0"></div>
       <div class="absolute -top-40 -right-25 w-[270px] h-[270px] bg-[#cd1df0]/35 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
-        <div className="flex flex-col md:flex-row gap-6 md:gap-[156px] items-start md:items-center px-[18px] md:px-[12%] py-[68px] z-10">
+        <div className="flex flex-col gap-10 items-start px-[18px] md:px-[6%] py-[68px] z-10 w-full">
           {/* Text */}
           <div className="flex flex-col gap-2 shrink-0">
             <p className="font-medium text-[#4425d5] text-[16px] tracking-[-0.8px] opacity-80">
@@ -1361,7 +1318,7 @@ export default function App() {
             <p className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[48px] text-black tracking-[-0.96px] leading-none">
               {lang === "en" ? "Selected Clients" : "Clientes Seleccionados"}
             </p>
-            <p className="text-[#504e51] text-[16px] leading-[1.42] max-w-[392px]">
+            <p className="text-[#504e51] text-[16px] leading-[1.42] max-w-[600px]">
               {lang === "en"
                 ? "During my time at XID, I contributed to digital products for clients across multiple industries. Many of these projects remain confidential."
                 : "Durante mi tiempo en XID, contribuí a productos digitales para clientes de múltiples industrias. Muchos de estos proyectos son confidenciales."}
@@ -1369,7 +1326,7 @@ export default function App() {
           </div>
 
           {/* Logos grid */}
-          <div className="hidden sm:grid grid-cols-3 gap-x-10 gap-y-10 items-center justify-items-center">
+          <div className="hidden sm:flex flex-row justify-between  gap-x-10 gap-y-10 items-center w-full">
             {/* XID*/}
               <div className="h-[38px] w-[140px] relative overflow-hidden">
                 <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={imgClientXID} />
@@ -1439,30 +1396,13 @@ export default function App() {
 
       {/* ── ABOUT ── */}
       <section
-        ref={aboutRef}
-        className="w-full border-t border-[#efeef3] relative"
-        style={{
-          backgroundImage: `
-            url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 454' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.25'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(24.65 7.8914 -10.623 20.112 201 -59.429)'><stop stop-color='rgba(205,29,240,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>"),
-            url("data:image/svg+xml;utf8,<svg viewBox='0 0 1366 454' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.24'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(23.7 30.056 -26.398 13.991 13.5 -0.000023491)'><stop stop-color='rgba(87,49,237,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>")
-          `,
-        }}
-      >
-        <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-[112px] px-[18px] md:px-[10%] py-[90px]">
-          {/* Label */}
-          <div className="flex flex-col gap-2 shrink-0">
-            <p className="font-medium text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
-              {tx.aboutLabel}
-            </p>
-            <p className="font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] text-black tracking-[-0.96px] leading-[0.83] max-w-[200px]">
-              {tx.niceToMeet}
-            </p>
-          </div>
-
+        ref={aboutRef} className="w-full relative">
+        <div className="flex flex-col lg:flex-row px-[18px] md:px-[6%] py-[90px]">
+          
           {/* Photo + bio */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-12 flex-1">
+          <div className="flex flex-col items-center justify-center sm:flex-row gap-12 flex-1">
             {/* Photo */}
-            <div className="rounded-[18px] overflow-hidden shrink-0 w-[200px] h-[240px] sm:w-[240px] sm:h-[280px] md:w-[284px] md:h-[294px] relative">
+            <div className="rounded-[18px] overflow-hidden shrink-0 w-[200px] h-[240px] sm:w-[240px] sm:h-[280px] md:w-[348px] md:h-[427px] relative">
               <img
                 alt="Abril Ríos"
                 className="absolute inset-0 w-full h-full object-cover object-center"
@@ -1472,12 +1412,21 @@ export default function App() {
             </div>
 
             {/* Bio + button */}
-            <div className="flex flex-col gap-5 flex-1">
-              <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
+            <div className="flex flex-col gap-5 flex-1 max-w-[800px]">
+              {/* Label */}
+              <div className="flex flex-col gap-2 shrink-0">
+                 <p className="font-medium text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
+                  {tx.aboutLabel}
+                 </p>
+                  <p className="font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] text-black tracking-[-0.96px] leading-[0.83] ">
+                   {tx.niceToMeet}
+                  </p>
+              </div>
+              <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] max-w-[700px]">
                 {tx.bio}
               </p>
 
-              <div class="flex items-center justify-end w-full"> 
+              <div class="flex items-center justify-end max-w-[800px]"> 
               <a
                 href={lang === "en" ? pdfResume : pdfCV}
                 download={lang === "en" ? "Resume_Abril_Rios.pdf" : "CV_Abril_Rios.pdf"}
