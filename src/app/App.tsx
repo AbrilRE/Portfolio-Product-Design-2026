@@ -14,6 +14,22 @@ import imgClientEdenred from "../imports/Clients/Edenred.png";
 import imgClientBrisas from "../imports/Clients/Brisas.png";
 import imgClientAltabix from "../imports/Clients/Altabix.png";
 import imgClientMera from "../imports/Clients/Mera.png";
+
+import imgvisualIllustration1 from "../imports/Visual Design/Visual Design/VD1.png";
+import imgvisualIllustration2 from "../imports/Visual Design/Visual Design/VD2.png";
+import imgvisualIllustration3 from "../imports/Visual Design/Visual Design/VD3.png";
+import imgvisualIllustration4 from "../imports/Visual Design/Visual Design/VD4.png";
+
+import imgvisualSocial1 from "../imports/Visual Design/Social Content/SD1.png";
+import imgvisualSocial2 from "../imports/Visual Design/Social Content/SD2.png";
+import imgvisualSocial3 from "../imports/Visual Design/Social Content/SD3.png";
+import imgvisualSocial4 from "../imports/Visual Design/Social Content/SD4.png";
+
+import imgvisualBrand1 from "../imports/Visual Design/Branding/BM1.png";
+import imgvisualBrand2 from "../imports/Visual Design/Branding/BM2.png";
+import imgvisualBrand3 from "../imports/Visual Design/Branding/BM3.png";
+import imgvisualBrand4 from "../imports/Visual Design/Branding/BM4.png";
+
 import pdfResume from "../imports/Resume_Abril_Rios.pdf";
 import pdfCV from "../imports/CV_Abril_Rios.pdf";
 
@@ -22,11 +38,16 @@ import svgSearch from "../imports/Icons/search.svg";
 import svgHighfi from "../imports/Icons/high-fi.svg";
 import svgSitemap from "../imports/Icons/sitemap.svg";
 import svgWireframes from "../imports/Icons/wireframes.svg";
+import svgSparkle from "../imports/Icons/Sparkle.svg";
+import svgLogoFooter from "../imports/Icons/LogoFooter.svg";
+import svgGithub from "../imports/Icons/Github.svg";
+import svgBehance from "../imports/Icons/Behance.svg";
+import svgDropdown from "../imports/Icons/Dropdown.svg";
 
 // ─── Translations ────────────────────────────────────────────────────────────
 const t = {
   en: {
-    work: "Work",
+    work: "Featured Work",
     about: "About",
     playground: "Playground",
     name: "Designing digital  experiences, with a focus on usability and visual coherence.",
@@ -84,9 +105,21 @@ const t = {
     playgroundDesc: "Freelance Concepts, experiments, and practice projects created to explore ideas, refine skills, and",
     playgroundDescBold: "stay creatively sharp.",
     playgroundEmpty: "Projects coming soon.",
+    skills: "Skills & Expertise",
+    toolsTitle: "Tools and Methodologies",
+    contactTitle: " Let’s create something meaningful.",
+    contactDesc: " Open to full-time roles and collaborations. If you have a project in mind I’d love to hear from you.",
+    contactBut: "Get in touch",
+    visualDesign: "Visual Design",
+    visualTitle: "Illustration & Content",
+    visualDesc: "A collection of illustrations, visual assets and branded content created during my time at XID.",
+    visualSub: "This selection includes only work that has been publicly shared by XID. ",
+    button1Title: "Illustration",
+    button2Title: "Social & Content",
+    button3Title: "Brand & Merchandising",
   },
   es: {
-    work: "Trabajo",
+    work: "Trabajo destacado",
     about: "Sobre mí",
     playground: "Exploración",
     name: "Diseñando experiencias digitales, con un enfoque en usabilidad y coherencia visual.",
@@ -148,6 +181,18 @@ Además del diseño de producto, también trabajo con ilustración, contenido vi
     playgroundDesc: "Conceptos freelance, experimentos y proyectos de práctica creados para explorar ideas, refinar habilidades y",
     playgroundDescBold: "mantener la creatividad activa.",
     playgroundEmpty: "Proyectos próximamente.",
+    skills: "Habilidades y experiencia",
+    toolsTitle: "Herramientas y metodologías",
+    contactTitle: "Creemos algo significativo.",
+    contactDesc: "Abierta a puestos de tiempo completo y colaboraciones. Si tienes algún proyecto en mente, me encantaría saber más al respecto.",
+    contactBut: "Contáctame",
+    visualDesign: "Diseño Visual",
+    visualTitle: "Ilustración y contenidos",
+    visualDesc: "Una colección de ilustraciones, recursos visuales y contenido de marca creados durante mi etapa en XID.",
+    visualSub: "Esta selección incluye únicamente trabajos que han sido compartidos públicamente por XID.",
+    button1Title: "Ilustración",
+    button2Title: "Redes sociales y contenidos",
+    button3Title: "Marca y mercancía",
   },
 };
 
@@ -168,17 +213,24 @@ export default function App() {
   const [activePage, setActivePage] = useState<"home" | "playground">("home");
   const [activeTab, setActiveTab] = useState<"overview" | "context" | "process" | "outcome" | "designsystem">("overview");
   const [activeProject, setActiveProject] = useState<"ai-doc" | "hotel" | "design-system">("ai-doc");
+  const [activeContent, setActiveContent] = useState<"ilustration" | "social" | "brand">("ilustration");
   const tx = t[lang];
 
   const featuredRef = useRef<HTMLDivElement>(null);
   const overviewRef = useRef<HTMLDivElement>(null);
   const collaborationsRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+  const visualRef = useRef<HTMLDivElement>(null);
 
   const openProject = (project: "ai-doc" | "hotel" | "design-system") => {
     setActiveProject(project);
     setActiveTab("overview");
-    setTimeout(() => overviewRef.current?.scrollIntoView({ behavior: "smooth" }), 0);
+  };
+
+  const openContent = (content: "ilustration" | "social" | "brand") => {
+    setActiveContent(content);
   };
 
   const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
@@ -189,6 +241,8 @@ export default function App() {
     setActivePage("home");
     if (ref) setTimeout(() => ref.current?.scrollIntoView({ behavior: "smooth" }), 0);
   };
+
+  const [isProjectMenuOpen, setIsProjectMenuOpen] = useState(false);
 
   
   return (
@@ -217,7 +271,7 @@ export default function App() {
               {tx.work}
             </button>
             <button
-              onClick={() => goHome(collaborationsRef)}
+              onClick={() => goHome(visualRef)}
               className="text-[14px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
             >
               {tx.collaborations}
@@ -322,7 +376,7 @@ export default function App() {
           {tx.work}
         </button>
         <button
-          onClick={() => goHome(collaborationsRef)}
+          onClick={() => goHome(visualRef)}
           className="text-[14px] text-black tracking-[-0.14px] hover:text-[#4425D5] transition-colors cursor-pointer bg-transparent border-none"
         >
           {tx.collaborations}
@@ -343,13 +397,12 @@ export default function App() {
       </header>
 
       
-
       {activePage === "home" && <>
 
       {/* ── HERO ── */}
       <section
         className="relative w-full min-h-[440px] md:min-h-[546px]">
-        <div className="flex flex-col justify-between h-full gap-8 px-[18px] md:px-[6%] py-[104px]">
+        <div className="flex flex-col justify-between h-full gap-8 px-[18px] md:px-[6%] py-[74px]  md:py-[104px]">
           {/* Content */}
           <div className="flex flex-col gap-5 md:gap-6 z-1">
             <div className="flex flex-col gap-4 md:gap-5">
@@ -389,7 +442,7 @@ export default function App() {
                 {tx.name}
               </p>
               
-              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+              <p className="text-[#504e51] text-[16px] md:text-[16px] leading-[1.42] max-w-[343px]">
                 {tx.tagline}
               </p>
             </div>
@@ -399,30 +452,30 @@ export default function App() {
           <img class="top-6 right-5 absolute w-[632px] h-[562px] pointer-events-none z-0" src={image_hero} >
             </img>
 
-          <div class="flex justify-between mt-10 z-1">
+          <div class="flex flex-col sm:flex-row justify-between mt-10 z-1">
              {/* STATS */}
-            <div class="flex gap-6">
+            <div class="flex gap-5 sm:gap-6">
               <div>
-                <p className="text-[#4425D5] text-[15px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
+                <p className="text-[#4425D5] text-[24px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
                  40% 
               </p>
-              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+              <p className="text-[#504e51] text-[16px] md:text-[16px] leading-[1.42] max-w-[343px]">
                  {tx.faster} 
               </p>
               </div>
               <div>
-                <p className="text-[#4425D5] text-[15px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
+                <p className="text-[#4425D5] text-[24px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
                  +4
               </p>
-              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+              <p className="text-[#504e51] text-[16px] md:text-[16px] leading-[1.42] max-w-[343px]">
                  {tx.designsys} 
               </p>
               </div>
               <div>
-                <p className="text-[#4425D5] text-[15px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
+                <p className="text-[#4425D5] text-[24px] md:text-[32px] font-semibold leading-[1.42] max-w-[240px]">
                  25%
               </p>
-              <p className="text-[#504e51] text-[15px] md:text-[16px] leading-[1.42] max-w-[343px]">
+              <p className="text-[#504e51] text-[16px] md:text-[16px] leading-[1.42] max-w-[343px]">
                  {tx.devtime} 
               </p>
               </div>
@@ -430,14 +483,16 @@ export default function App() {
 
 
           {/* Scroll hint */}
-          <div className="flex items-center justify-end gap-2">
-            <span className="text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.16px]">{tx.scrollExplore}</span>
+          <div className="flex items-center justify-end gap-2 mt-12 sm:mt-0">
+            <span className="text-[#4425d5] text-[16px] md:text-[18px] tracking-[-0.16px]">{tx.scrollExplore}</span>
             <div className="size-[24px] rotate-180">
               <ArrowIcon color="#4425D5" />
             </div>
           </div>
           </div>
+
         </div>
+
       </section>
 
       {/* ── FEATURED WORK ── */}
@@ -446,7 +501,7 @@ export default function App() {
        {/* GLOW */}
       <div class="hidden absolute sm:grid rotate-[30deg] top-105 -left-25 w-[260px] h-[260px] bg-[#CD1DF0]/18 rounded-full blur-[100px] pointer-events-none z-0"></div>
       
-        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] py-[48px]">
+        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] pb-5 sm:pb-0 pt-[48px]">
           {/* Left label */}
           <div className="flex flex-col gap-2 shrink-0 mx-[0px] mt-[0px] mb-[16px]">
             <p className="font-medium text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
@@ -1042,99 +1097,122 @@ export default function App() {
 
           </div>
         </div>
-
+        
         {/* Right: sidebar */}
         <div className="bg-[#f9f7fb] w-full lg:w-[300px] xl:w-[349px] shrink-0">
-          <div className="flex flex-col gap-8 px-6 md:px-10 lg:px-10 py-8 md:py-[70px] h-full">
+          <div className="flex flex-col gap-4 lg:gap-8 px-6 md:px-10 lg:px-10 py-6 md:py-8 lg:py-[70px] h-full">
             
-            {/* Project nav */}
+            {/* NAV */}
             <div className="flex flex-col gap-2">
-              <p className="font-semibold text-[18px] text-black tracking-[-0.36px]">
-                {activeProject === "ai-doc"
-                  ? (lang === "en" ? "AI Documentation Platform" : "Plataforma de Documentación IA")
-                  : activeProject === "hotel"
-                  ? (lang === "en" ? "Hotel Management Platform" : "Plataforma de Gestión Hotelera")
-                  : (lang === "en" ? "Enterprise Design System" : "Sistema de Diseño Empresarial")}
-              </p>
-              <p class="font-semibold text-[#504E51] text-[16px] tracking-[-0.8px] opacity-80"> Project menu</p>
-              {(activeProject === "hotel"
-                ? [
-                    { key: "overview" as const, label: tx.overviewLabel },
-                    { key: "context" as const, label: tx.contextChallenge },
-                    { key: "process" as const, label: tx.process },
-                    { key: "outcome" as const, label: tx.outcomeLabel },
-                    { key: "designsystem" as const, label: lang === "en" ? "Design System" : "Sistema de Diseño" },
-                  ]
-                : [
-                    { key: "overview" as const, label: tx.overviewLabel },
-                    { key: "context" as const, label: tx.contextChallenge },
-                    { key: "process" as const, label: tx.process },
-                    { key: "outcome" as const, label: tx.outcomeLabel },
-                  ]
-              ).map(({ key, label }) => {
-                const isActive = activeTab === key;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => key === "designsystem" ? openProject("design-system") : setActiveTab(key)}
-                    className="flex items-center gap-2 cursor-pointer bg-transparent border-none text-left"
-                  >
-                    <div className="size-[8px] shrink-0">
-                      {isActive ? (
-                        <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#4425D5" /></svg>
-                      ) : (
-                        <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#866EED" opacity="0" /></svg>
-                      )}
-                    </div>
-                    <span className={`text-[14px] tracking-[-0.14px] ${isActive ? "text-[#4425d5]" : "text-[#a098a1]"}`}>
-                      {label}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* Divider */}
-            <div className="w-full h-px bg-[#efeef3]" />
-
-            {/* Meta */}
-            <div className="flex flex-col gap-6">
-              <div className="flex flex-col gap-2">
-                <p className="text-[#a098a1] text-[12px] tracking-[-0.12px]">{tx.projectType}</p>
-                <p className="text-[#504e51] font-medium text-[14px] tracking-[-0.14px]">
+              
+              {/* TITTLE*/}
+              <button 
+                onClick={() => setIsProjectMenuOpen(!isProjectMenuOpen)}
+                className="flex items-center justify-between w-full bg-transparent border-none text-left p-0 cursor-pointer lg:cursor-default lg:pointer-events-none"
+              >
+                <p className="font-semibold text-[18px] text-black tracking-[-0.36px]">
                   {activeProject === "ai-doc"
-                    ? tx.projectTypeVal
+                    ? (lang === "en" ? "AI Documentation Platform" : "Plataforma de Documentación IA")
                     : activeProject === "hotel"
-                    ? (lang === "en" ? "Enterprise SaaS" : "SaaS Empresarial")
-                    : (lang === "en" ? "Design System" : "Sistema de Diseño")}
+                    ? (lang === "en" ? "Hotel Management Platform" : "Plataforma de Gestión Hotelera")
+                    : (lang === "en" ? "Enterprise Design System" : "Sistema de Diseño Empresarial")}
                 </p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-[#a098a1] text-[12px] tracking-[-0.12px]">{tx.myRole}</p>
-                <p className="text-[#504e51] font-medium text-[14px] tracking-[-0.14px]">{tx.myRoleVal}</p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-[#a098a1] text-[12px] tracking-[-0.12px]">{tx.year}</p>
-                <p className="text-[#504e51] font-medium text-[14px] tracking-[-0.14px]">
-                  {activeProject === "ai-doc" ? tx.yearVal : activeProject === "hotel" ? "2026" : "2026"}
-                </p>
+                
+                {/* ARROW */}
+                <span className={`transition-transform duration-200 lg:hidden ${isProjectMenuOpen ? 'rotate-180' : ''}`}>
+                  <div className="h-[12px] w-[20px] relative">
+                    <img alt="" className="max-w-none size-full" src={svgDropdown}/>
+                  </div>
+                </span>
+              </button>
+
+              <p className="font-semibold text-[#504E51] text-[16px] tracking-[-0.8px] opacity-80 mt-1 lg:mt-0">
+                Project menu
+              </p>
+
+              {/*PROJECT MENU*/}
+              <div className={`${isProjectMenuOpen ? "flex" : "hidden"} lg:flex flex-col gap-2 mt-2 lg:mt-0`}>
+                {(activeProject === "hotel"
+                  ? [
+                      { key: "overview" as const, label: tx.overviewLabel },
+                      { key: "context" as const, label: tx.contextChallenge },
+                      { key: "process" as const, label: tx.process },
+                      { key: "outcome" as const, label: tx.outcomeLabel },
+                      { key: "designsystem" as const, label: lang === "en" ? "Design System" : "Sistema de Diseño" },
+                    ]
+                  : [
+                      { key: "overview" as const, label: tx.overviewLabel },
+                      { key: "context" as const, label: tx.contextChallenge },
+                      { key: "process" as const, label: tx.process },
+                      { key: "outcome" as const, label: tx.outcomeLabel },
+                    ]
+                ).map(({ key, label }) => {
+                  const isActive = activeTab === key;
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => {
+                        key === "designsystem" ? openProject("design-system") : setActiveTab(key);
+                        setIsProjectMenuOpen(false); 
+                      }}
+                      className="flex items-center gap-2 cursor-pointer bg-transparent border-none text-left py-1 lg:py-0"
+                    >
+                      <div className="size-[8px] shrink-0">
+                        {isActive ? (
+                          <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#4425D5" /></svg>
+                        ) : (
+                          <svg viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#866EED" opacity="0" /></svg>
+                        )}
+                      </div>
+                      <span className={`text-[14px] tracking-[-0.14px] ${isActive ? "text-[#4425d5]" : "text-[#a098a1]"}`}>
+                        {label}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
+
+            {/* DROPDOWN INFO */}
+            <div className={`${isProjectMenuOpen ? "flex" : "hidden"} lg:flex flex-col gap-4 lg:gap-6`}>
+              {/* Divider */}
+              <div className="w-full h-px bg-[#efeef3]" />
+
+              {/* MENU LIST */}
+              <div className="flex flex-col gap-6">
+                <div className="flex flex-col gap-2">
+                  <p className="text-[#a098a1] text-[12px] tracking-[-0.12px]">{tx.projectType}</p>
+                  <p className="text-[#504e51] font-medium text-[14px] tracking-[-0.14px]">
+                    {activeProject === "ai-doc"
+                      ? tx.projectTypeVal
+                      : activeProject === "hotel"
+                      ? (lang === "en" ? "Enterprise SaaS" : "SaaS Empresarial")
+                      : (lang === "en" ? "Design System" : "Sistema de Diseño")}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-[#a098a1] text-[12px] tracking-[-0.12px]">{tx.myRole}</p>
+                  <p className="text-[#504e51] font-medium text-[14px] tracking-[-0.14px]">{tx.myRoleVal}</p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-[#a098a1] text-[12px] tracking-[-0.12px]">{tx.year}</p>
+                  <p className="text-[#504e51] font-medium text-[14px] tracking-[-0.14px]">
+                    {activeProject === "ai-doc" ? tx.yearVal : activeProject === "hotel" ? "2026" : "2026"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* ── BEHANCE ── */}
-                    <section
+      <section
         ref={collaborationsRef}
         className="w-full relative overflow-hidden"
       >
-         {/* Gradient */}  
-      <div class="hidden sm:block absolute top-15 -right-30 w-[270px] h-[270px] bg-[#cd1df0]/45 rounded-full blur-[120px] pointer-events-none z-0"></div>
-
-       {/* Gradient MOBILE*/}  
-      <div class="sm:hidden absolute -bottom-20 -right-30 w-[270px] h-[270px] bg-[#cd1df0]/45 rounded-full blur-[120px] pointer-events-none z-0"></div>
-
+        
         <div className="relative flex px-[18px] md:px-[6%] py-[68px]  z-2">
           {/* Text */}
           <div className="flex flex-col sm:flex-row items-center justify-between shrink-0 px-[24px] py-[16px] rounded-[24px] w-full" 
@@ -1143,7 +1221,7 @@ export default function App() {
             border: `1px solid rgba(68, 37, 213, 0.08)`
             ,
             }}>
-            <p className="font-bold text-[#504e51] text-[16px] leading-[1.42] max-w-[392px]">
+            <p className="font-bold text-[#000000] text-[16px] leading-[1.42] max-w-[392px]">
               {lang === "en"
                 ? "A closer look at my design process."
                 : "Un vistazo más detallado a mi proceso de diseño."}
@@ -1300,15 +1378,124 @@ export default function App() {
 
       </section>
 
+      {/* ── VISUAL DESIGN ── */}
+      <section ref={visualRef} className="w-full">
+       
+        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] py-[48px] overflow-hidden">
+           {/* GLOW */}
+            <div class="hidden absolute sm:grid rotate-[30deg] top-420 right-50 w-[260px] h-[260px] bg-[#5731ED]/18 rounded-full blur-[100px] pointer-events-none z-0"></div>
+      
+          {/* Title */}
+          <div className="flex flex-col gap-2 shrink-0 mx-[0px] mt-[0px] mb-[16px]">
+            <p className="font-medium text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
+              {tx.visualDesign}
+            </p>
+            <p className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] text-black tracking-[-0.96px] leading-none">
+              {tx.visualTitle}
+            </p>
+            <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
+              {tx.visualDesc}
+            </p>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-row flex-wrap  gap-4 flex-1 w-full">
+            {/* Button 1 */}
+            <button
+              onClick={() => openContent("ilustration")
+              }
+              className="bg-[#F9F7FB]/48 py-3 px-6 flex items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
+            >
+                <span className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
+                    {tx.button1Title}
+                </span>
+            </button>
+
+            {/* Button 2 */}
+            <button
+              onClick={() => openContent("social")}
+              className="bg-[#F9F7FB]/48 py-3 px-6 flex items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
+            >
+                <span  className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
+                  {tx.button2Title}
+                </span>
+            </button>
+
+            {/* Button 3 */}
+            <button
+              onClick={() => openContent("brand")}
+              className="bg-[#F9F7FB]/48 flex py-3 px-6 items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
+            >
+              <span  className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
+                  {tx.button3Title}
+                </span>
+            </button>
+          </div>
+
+          <div>
+
+            {/* ── PROJECTS ── */}
+            <div className="z-5">
+           <div className={`flex justify-between w-full overflow-hiden flex-wrap h-[285px] sm:h-[260px] mb-4`}>
+
+            {/* ── ILLUSTRATION  ── */}
+            {activeContent === "ilustration" && (
+              <>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualIllustration1} style={{}}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualIllustration2} style={{ }}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualIllustration3} style={{}}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualIllustration4} style={{}}/>  
+              </>
+            )}
+
+            {/* ── SOCIAL CONTENT ── */}
+            {activeContent === "social" && (
+              <>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualSocial1} style={{}}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualSocial2} style={{ }}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualSocial3} style={{}}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualSocial4} style={{}}/> 
+              </>
+            )}
+
+            {/* ── BRAND ── */}
+            {activeContent === "brand" && (
+              <>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualBrand1} style={{}}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualBrand2} style={{ }}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualBrand3} style={{}}/>
+              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+                src={imgvisualBrand4} style={{}}/> 
+              </>
+            )}
+
+          </div>
+        </div>
+
+          </div>
+            <p className="text-right text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
+              {tx.visualSub}
+            </p>
+        </div>
+      </section>
+
       {/* ── SELECTED CLIENTS ── */}
       <section
         ref={collaborationsRef}
         className="w-full relative overflow-hidden"
       >
-        {/* Gradient */}  
-      <div class="absolute rotate-[30deg] top-25 -right-25 w-[260px] h-[100px] bg-[#5731ed]/32 rounded-full blur-[90px] pointer-events-none z-0"></div>
-      <div class="absolute -top-40 -right-25 w-[270px] h-[270px] bg-[#cd1df0]/35 rounded-full blur-[120px] pointer-events-none z-0"></div>
-
+       
         <div className="flex flex-col gap-10 items-start px-[18px] md:px-[6%] py-[68px] z-10 w-full">
           {/* Text */}
           <div className="flex flex-col gap-2 shrink-0">
@@ -1446,18 +1633,206 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── SKILLS ── */}
+      <section ref={skillsRef} className="w-full ">
+        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] py-[48px]">
+          {/* Title*/}
+          <div className="flex flex-col gap-2 shrink-0 mx-[0px] mt-[0px] mb-[16px]">
+            <p className="font-medium text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
+              {tx.skills}
+            </p>
+            <p className="capitalize font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] text-black tracking-[-0.96px] leading-none">
+              {tx.toolsTitle}
+            </p>
+          </div>
+
+          {/* Pills*/}
+          <div className="flex flex-row flex-wrap gap-3 sm:gap-4 flex-1 w-full">
+            {/* 1*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Figma
+                </span>
+            </div>
+
+            {/* 2*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6  flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Design Systems
+                </span>
+            </div>
+
+            {/* 3*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6  flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    FigmaMake
+                </span>
+            </div>
+
+            {/* 4*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Photoshop
+                </span>
+            </div>
+
+            {/* 5*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Figma Variables
+                </span>
+            </div>
+
+            {/* 6*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Atomic Design
+                </span>
+            </div>
+
+             {/* 7*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    FigJam
+                </span>
+            </div>
+
+            {/* 8*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Interaction Design 
+                </span>
+            </div>
+
+            {/* 9*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Google Analytics
+                </span>
+            </div>
+
+            {/* 10*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Agile
+                </span>
+            </div>
+
+            {/* 11*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Scrum
+                </span>
+            </div>
+
+            {/* 12*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    User Flows
+                </span>
+            </div>
+
+             {/* 13*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    AI Assisted
+                </span>
+            </div>
+
+            {/* 14*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Wireframing
+                </span>
+            </div>
+
+            {/* 15*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Prototyping
+                </span>
+            </div>
+
+            {/* 16*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    Responsive
+                </span>
+            </div>
+
+            {/* 17*/}
+            <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
+              <span className="text-[#504E51] text-[14px] md:text-[16px]">
+                    HTML & CSS
+                </span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── CONTACT ── */}
+      <section ref={contactRef} className="w-full ">
+                 
+        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] py-[48px] mb-0 sm:mb-3 mt-0 sm:mt-6">
+          {/* card*/}
+          <div className="flex flex-col items-center text-center gap-3 px-[18px] md:px-[6%] py-[32px] md:py-[64px] rounded-[24px] border border-[#4425D5]/10 bg-[#4425D5]/4">
+            <div className="flex flex-col items-center gap-2 shrink-0 mx-[0px] mt-[0px] mb-[16px]">
+              <div className="h-[40px] w-[40px] relative mb-2">
+                <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgSparkle} />
+              </div>
+              <p className="capitalize,serif] font-bold text-[24px] md:text-[32px] text-black tracking-[-0.96px] leading-none">
+                {tx.contactTitle}
+              </p>
+              <p className="text-[#504e51] text-[16px] leading-[1.42] max-w-[600px]">
+                {tx.contactDesc}
+              </p>
+               <button class="flex items-center rounded-[24px] px-6 md:px-6 py-3 md:py-3 gap-2 cursor-pointer bg-[#5731ED] mt-3 border-none hover:opacity-70 transition-opacity">
+                  <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                    <a href="https://www.linkedin.com/in/abril-rios-06301a201" target="_blank" rel="noopener noreferrer"> {tx.contactBut} </a>
+                  </span>
+                  <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                    </svg>
+                  </div>
+            </button>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
       {/* ── FOOTER ── */}
       <footer className="w-full">
-        <div className="flex flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] px-[0px] pt-[32px] pb-[64px]">
-          <p className="font-bold text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
-            {tx.footerCta}
-          </p>
-          <a href="https://www.linkedin.com/in/abril-rios-06301a201/" target="_blank" rel="noopener noreferrer" className="flex  items-center gap-2">
-            <svg className="size-[24px]" fill="none" viewBox="0 0 24 24">
-              <path d={svgPaths.p33a02600} fill="#504E51" />
-            </svg>
-            <span className="text-[#504e51] text-[14px] tracking-[-0.14px]">Abril Ríos</span>
+        <div className="flex flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] px-[0px] pt-[32px] pb-[64px]  border-t border-[#EFEEF3]">
+        
+        <button onClick={() => goHome()} className="flex items-center gap-1 bg-transparent border-none cursor-pointer">
+          <div className="h-[19px] relative shrink-0 w-[17px]">
+            <div className="h-[20px] w-[100px] relative">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgLogoFooter}/>
+            </div>
+          </div>
+        </button>
+        
+        <div className="flex gap-4">
+          <a href="https://github.com/AbrilRE" target="_blank" rel="noopener noreferrer" >
+            <div className="h-[24px] w-[24px] relative">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgGithub}/>
+            </div>
           </a>
+          <a href="https://www.behance.net/abrilrios" target="_blank" rel="noopener noreferrer">
+            <div className="h-[24px] w-[24px] relative">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgBehance}/>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/abril-rios-06301a201/" target="_blank" rel="noopener noreferrer">
+            <svg className="size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p33a02600} fill="#504E51" /></svg>
+          </a>
+        </div>
+         
         </div>
       </footer>
 
@@ -1466,8 +1841,12 @@ export default function App() {
       {/* ── PLAYGROUND PAGE ── */}
       {activePage === "playground" && (
         <section className="flex flex-col flex-1 min-h-[calc(100vh-64px)]">
+          {/* BG Hero */}
+          <img class="top-18 right-45 absolute w-[650px] h-[580px] pointer-events-none z-0" src={image_hero} >
+            </img>
+
           {/* Content */}
-          <div className="flex-1 px-[18px] md:px-[15%] py-[70px] flex flex-col gap-8">
+          <div className="flex-1 px-[18px] md:px-[6%] py-[70px] flex flex-col gap-8 z-5">
             {/* Heading block */}
             <div className="flex flex-col gap-2">
               <p className="font-medium text-[#4425d5] text-[16px] tracking-[-0.8px] opacity-80">
@@ -1518,22 +1897,39 @@ export default function App() {
                  </div>
           </div>
 
-          {/* Footer */}
-          <footer className="w-full">
-            <div className="flex flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] pt-[32px] pb-[64px]">
-              <p className="font-bold text-[#504e51] text-[14px] md:text-[16px] leading-[1.42]">
-                {tx.footerCta}
-              </p>
-              <a href="https://www.linkedin.com/in/abril-rios-06301a201/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <svg className="size-[24px]" fill="none" viewBox="0 0 24 24">
-                  <path d={svgPaths.p33a02600} fill="#504E51" />
-                </svg>
-                <span className="text-[#504e51] text-[14px] tracking-[-0.14px]">Abril Ríos</span>
-              </a>
+           {/* ── FOOTER ── */}
+      <footer className="w-full">
+        <div className="flex flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mx-[5%] px-[0px] pt-[32px] pb-[64px]  border-t border-[#EFEEF3]">
+        
+        <button onClick={() => goHome()} className="flex items-center gap-1 bg-transparent border-none cursor-pointer">
+          <div className="h-[19px] relative shrink-0 w-[17px]">
+            <div className="h-[20px] w-[100px] relative">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgLogoFooter}/>
             </div>
-          </footer>
+          </div>
+        </button>
+        
+        <div className="flex gap-4">
+          <a href="https://github.com/AbrilRE" target="_blank" rel="noopener noreferrer" >
+            <div className="h-[24px] w-[24px] relative">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgGithub}/>
+            </div>
+          </a>
+          <a href="https://www.behance.net/abrilrios" target="_blank" rel="noopener noreferrer">
+            <div className="h-[24px] w-[24px] relative">
+              <img alt="" className="absolute inset-0 max-w-none object-cover size-full" src={svgBehance}/>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/abril-rios-06301a201/" target="_blank" rel="noopener noreferrer">
+            <svg className="size-[24px]" fill="none" viewBox="0 0 24 24"><path d={svgPaths.p33a02600} fill="#504E51" /></svg>
+          </a>
+        </div>
+         
+        </div>
+      </footer>
         </section>
       )}
     </div>
   );
 }
+
