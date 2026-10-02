@@ -30,6 +30,14 @@ import imgvisualBrand2 from "../imports/Visual Design/Branding/BM2.png";
 import imgvisualBrand3 from "../imports/Visual Design/Branding/BM3.png";
 import imgvisualBrand4 from "../imports/Visual Design/Branding/BM4.png";
 
+import imgPlayAI from "../imports/Playground/AILeadflow.png";
+import imgPlayPet from "../imports/Playground/Petmarket.png";
+import imgPlayGym from "../imports/Playground/Gym.png";
+import imgPlayFlor from "../imports/Playground/Floral.png";
+import imgPlayMake from "../imports/Playground/Makeup.png";
+import imgPlayPla from "../imports/Playground/Plants.png";
+import imgPlayTech from "../imports/Playground/Tech.png";
+
 import pdfResume from "../imports/Resume_Abril_Rios.pdf";
 import pdfCV from "../imports/CV_Abril_Rios.pdf";
 
@@ -1707,21 +1715,21 @@ export default function App() {
             {/* 9*/}
             <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
               <span className="text-[#504E51] text-[14px] md:text-[16px]">
-                    Google Analytics
+                    Google Stitch
                 </span>
             </div>
 
             {/* 10*/}
             <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
               <span className="text-[#504E51] text-[14px] md:text-[16px]">
-                    Agile
+                    Scrum/Agile
                 </span>
             </div>
 
             {/* 11*/}
             <div className="bg-[#F9F7FB]/48 py-1 sm:py-3 px-4 sm:px-6 flex items-center rounded-[50px] border border-[#efeef3]"> 
               <span className="text-[#504E51] text-[14px] md:text-[16px]">
-                    Scrum
+                    User Research
                 </span>
             </div>
 
@@ -1846,7 +1854,7 @@ export default function App() {
             </img>
 
           {/* Content */}
-          <div className="flex-1 px-[18px] md:px-[6%] py-[70px] flex flex-col gap-8 z-5">
+          <div className="flex-1 px-[18px] md:px-[8%] py-[70px] flex flex-col gap-8 z-5">
             {/* Heading block */}
             <div className="flex flex-col gap-2">
               <p className="font-medium text-[#4425d5] text-[16px] tracking-[-0.8px] opacity-80">
@@ -1861,40 +1869,124 @@ export default function App() {
               </p>
             </div>
 
-            {/* Projects area – placeholder */}
-            
-            <div className="w-full min-h-[452px] flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0">
-              {/*  <p className="text-[#a098a1] text-[14px] tracking-[-0.14px]">{tx.playgroundEmpty}</p> */}
-               
-                <div className="flex flex-col gap-2">
-                 <video className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="265" height="620" controls>
-                    <source src="https://res.cloudinary.com/dmbjyyh6n/video/upload/v1784254166/Portfolio%202026/Petmarket_Prototype_xdd3ei.mov" type="video/mp4" />
-                  </video>
-                 <p className="text-[#504e51] text-[16px] leading-[1.42]">PetMarket 2026 (Video) </p>
-                </div>
+          {/* Projects*/}
+          <div className="flex flex-col gap-[16px] sm:gap-[24px]">
+            {/*ROW 1 */}
+            <div className="flex flex-col sm:flex-row gap-[16px] sm:gap-[24px]">
+              {/* PET MARKET*/}
+              <div className="relative h-[220px] sm:h-[420px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{ backgroundImage: `url(${imgPlayPet})` }}>
+                <a className="absolute right-4 bottom-4 hover:scale-104 transition-all duration-300 transform-gpu" href="https://www.behance.net/gallery/256492993/PetMarket-UIUX-Product-Design" target="_blank" >
+                  <p className="flex gap-2 text-[#ffffff] font-medium hover:underline hover:decoration-2">
+                    UI/UX Product Design | View proyect
+                    <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#ffffff"></path>
+                    </svg>
+                    </div>
+                  </p>
+                </a>
+              </div>
 
-                <div className="flex flex-col gap-2">
-                <iframe className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="250" height="590" src="https://embed.figma.com/proto/vXKKXAmqMN6jUWru3VnRxb/Log-in-Prototype--Backup-?content-scaling=fixed&kind=proto&node-id=10-158&scaling=scale-down-width&starting-point-node-id=4%3A472&page-id=2%3A2&embed-host=share" allowFullScreen></iframe>
-                 <p className="text-[#504e51] text-[16px] leading-[1.42]">Gym Onboarding 2023</p>
-                </div>
-              
-               <div className="flex flex-col gap-2">
-                <iframe className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="250" height="590" src="https://embed.figma.com/proto/kh8UJVlNgh4VjxFRixht9S/Prototype?node-id=65976-2478&page-id=805%3A0&starting-point-node-id=65976%3A2478&scaling=scale-down-width&content-scaling=fixed&embed-host=share" allowFullScreen></iframe>
-                 <p className="text-[#504e51] text-[16px] leading-[1.42]">Tech App 2022</p>
-                </div>
-
-               <div className="flex flex-col gap-2">
-                <iframe className="rounded-[25px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} width="250" height="590" src="https://embed.figma.com/proto/aMBXZnVQrTMTUOZcQCdbl5/Web--Makeup--Plants?node-id=21-58&page-id=3%3A2&starting-point-node-id=21%3A58&scaling=scale-down-width&content-scaling=fixed&embed-host=share" allowFullScreen></iframe>
-                 <p className="text-[#504e51] text-[16px] leading-[1.42]">Makeup App 2022</p>
-                </div>
+              {/* AI LEAD*/}
+              <div className="relative h-[220px] sm:h-[420px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{ backgroundImage: `url(${imgPlayAI})` }}>
+                <a className="absolute right-4 bottom-4 hover:scale-104 transition-all duration-300 transform-gpu" href="https://www.behance.net/gallery/256540443/AI-LeadFlow-UIUX-Product-Design" target="_blank" >
+                  <p className="flex gap-2 text-[#ffffff] font-medium hover:underline hover:decoration-2">
+                    UI/UX Product Design | View proyect
+                    <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#ffffff"></path>
+                    </svg>
+                    </div>
+                  </p>
+                </a>
+              </div>
             </div>
-               <br />
-                <div className="flex flex-col gap-2">
-                 <video className="rounded-[16px] " style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }} controls>
-                    <source src="https://res.cloudinary.com/dmbjyyh6n/video/upload/v1784255377/Portfolio%202026/Ai_tool_Prototype_gjf6lg.mp4" type="video/mp4" />
-                  </video>
-                  <p className="text-[#504e51] text-[16px] leading-[1.42]">Ai Tool Landing 2026 (Video) </p>
-                 </div>
+
+            {/*ROW 2 */}
+            <div className="flex flex-col sm:flex-row gap-[16px] sm:gap-[24px]">
+              {/* TECH*/}
+              <div className="relative h-[200px] sm:h-[280px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{ backgroundImage: `url(${imgPlayTech})` }}>
+                <a className="absolute right-4 bottom-4 hover:scale-104 transition-all duration-300 transform-gpu" href="https://www.behance.net/gallery/148526741/TechBuy-Mobile-App-UIUX" target="_blank" >
+                  <p className="flex gap-2 text-[#ffffff] font-medium hover:underline hover:decoration-2">
+                    TechBuy UI/UX Mobile | View proyect
+                    <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#ffffff"></path>
+                    </svg>
+                    </div>
+                  </p>
+                </a>
+              </div>
+              {/* GYM*/}
+              <div className="relative h-[200px] sm:h-[280px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{ backgroundImage: `url(${imgPlayGym})` }}>
+                <a className="absolute right-4 bottom-4 hover:scale-104 transition-all duration-300 transform-gpu" href="https://www.behance.net/gallery/255181209/Gym-Mobile-App-UI" target="_blank" >
+                  <p className="flex gap-2 text-[#ffffff] font-medium hover:underline hover:decoration-2">
+                    Gym UI Mobile  | View proyect
+                    <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#ffffff"></path>
+                    </svg>
+                    </div>
+                  </p>
+                </a>
+              </div>
+              {/* FLORAL*/}
+              <div className="relative h-[200px] sm:h-[280px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{ backgroundImage: `url(${imgPlayFlor})` }}>
+                <a className="absolute right-4 bottom-4 hover:scale-104 transition-all duration-300 transform-gpu" href="https://www.behance.net/gallery/255182643/Floral-Mobile-App-UI" target="_blank" >
+                  <p className="flex gap-2 text-[#ffffff] font-medium hover:underline hover:decoration-2">
+                    Floral UI Mobile | View proyect
+                    <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#ffffff"></path>
+                    </svg>
+                    </div>
+                  </p>
+                </a>
+              </div>
+            </div>
+
+            {/*ROW 3 */}
+            <div className="flex flex-col sm:flex-row gap-[16px] sm:gap-[24px]">
+              {/* Makeup*/}
+              <div className="relative h-[200px] sm:h-[280px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{ backgroundImage: `url(${imgPlayMake})` }}>
+                <a className="absolute right-4 bottom-4 hover:scale-104 transition-all duration-300 transform-gpu" href="https://www.behance.net/gallery/148521679/MakeUp-Mobile-App-UI" target="_blank" >
+                  <p className="flex gap-2 text-[#ffffff] font-medium hover:underline hover:decoration-2">
+                    MakeUP UI/UX Mobile | View proyect
+                    <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#ffffff"></path>
+                    </svg>
+                    </div>
+                  </p>
+                </a>
+              </div>
+              {/* Plants*/}
+              <div className="relative h-[200px] sm:h-[280px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{ backgroundImage: `url(${imgPlayPla})` }}>
+                <a className="absolute right-4 bottom-4 hover:scale-104 transition-all duration-300 transform-gpu" href="https://www.behance.net/gallery/148523261/Plants-Web-Design-UI" target="_blank" >
+                  <p className="flex gap-2 text-[#ffffff] font-medium hover:underline hover:decoration-2">
+                    Plants UI Web | View proyect
+                    <div class="size-[24px] rotate-90">
+                    <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                      <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#ffffff"></path>
+                    </svg>
+                    </div>
+                  </p>
+                </a>
+              </div>
+              {/* NEW*/}
+              <div className="relative h-[200px] sm:h-[280px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                style={{}}>
+                
+              </div>
+            </div>
+          </div>
           </div>
 
            {/* ── FOOTER ── */}
