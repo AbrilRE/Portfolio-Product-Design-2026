@@ -1,13 +1,41 @@
 import image_hero from '@/imports/BGHero.png'
 import image_IMG from '@/imports/IMG.png'
-import image_Mock_1 from '@/imports/Mock-1.png'
-import image_dox_mock from '@/imports/dox_mock.png'
-import { useRef, useState } from "react";
-import svgPaths from "../imports/Portfolio-2/svg-fr9kzdvg5s";
-import imgRectangle3 from "../imports/Portfolio-2/40f25a6ccd0e70ec894c190c93754abe8851c7df.png";
+
+import { useRef, useState, useEffect } from "react";
+
 import imgOverviewAiDoc from "../imports/image.png";
 import imgOverviewDs from "../imports/image-1.png";
 import imgOverviewHotel from "../imports/image-3.png";
+
+// ─── Hotel Management ─────────────
+import SelectProBgHM from "../imports/Selected Projects/HMBackground.png";
+import SelectProBgHMMobile from "../imports/Selected Projects/HMBackgroundMobile.png";
+import SelectProBg2 from "../imports/Selected Projects/2Background.png";
+import SelectProBg3 from "../imports/Selected Projects/3Background.png";
+import SelectProBg4 from "../imports/Selected Projects/4Background.png";
+
+import UserFlowHM from "../imports/Selected Projects/HM/Userflows.png";
+import SiteMapHM from "../imports/Selected Projects/HM/Sitemaps.png";
+import LowFipHM from "../imports/Selected Projects/HM/Lowfi.png";
+import ProtoHM from "../imports/Selected Projects/HM/Prototype.png";
+import UsFlHM from "../imports/Selected Projects/HM/UFReservation.png";
+import UsFlHM2 from "../imports/Selected Projects/HM/UFGuests.png";
+import SitMapHM from "../imports/Selected Projects/HM/Sitemap.png";
+import WiFrDash from "../imports/Selected Projects/HM/Wireframes/Dashboard.png";
+import WiFrDash2 from "../imports/Selected Projects/HM/Wireframes/Dashboard2.png";
+import WiFrRes from "../imports/Selected Projects/HM/Wireframes/Reservations.png";
+import WiFrRes2 from "../imports/Selected Projects/HM/Wireframes/Reservations2.png";
+import WiFrRes3 from "../imports/Selected Projects/HM/Wireframes/Reservations3.png";
+import WiFrGues from "../imports/Selected Projects/HM/Wireframes/Guests.png";
+import WiFrGues2 from "../imports/Selected Projects/HM/Wireframes/Guests2.png";
+import WiFrGues3 from "../imports/Selected Projects/HM/Wireframes/Guests3.png";
+import WiFrUser from "../imports/Selected Projects/HM/Wireframes/Users.png";
+import WiFrRoo from "../imports/Selected Projects/HM/Wireframes/Rooms.png";
+import WiFrAud from "../imports/Selected Projects/HM/Wireframes/Audit.png";
+import WiFrHot from "../imports/Selected Projects/HM/Wireframes/Hotels.png";
+import WiFrHot2 from "../imports/Selected Projects/HM/Wireframes/Hotels2.png";
+
+// ─── Clients ─────────────
 import imgClientXID from "../imports/Clients/XID.png";
 import imgClientDOX from "../imports/Clients/DOX.png";
 import imgClientEdenred from "../imports/Clients/Edenred.png";
@@ -15,6 +43,7 @@ import imgClientBrisas from "../imports/Clients/Brisas.png";
 import imgClientAltabix from "../imports/Clients/Altabix.png";
 import imgClientMera from "../imports/Clients/Mera.png";
 
+// ─── Visual Design ─────────────
 import imgvisualIllustration1 from "../imports/Visual Design/Visual Design/VD1.png";
 import imgvisualIllustration2 from "../imports/Visual Design/Visual Design/VD2.png";
 import imgvisualIllustration3 from "../imports/Visual Design/Visual Design/VD3.png";
@@ -30,6 +59,7 @@ import imgvisualBrand2 from "../imports/Visual Design/Branding/BM2.png";
 import imgvisualBrand3 from "../imports/Visual Design/Branding/BM3.png";
 import imgvisualBrand4 from "../imports/Visual Design/Branding/BM4.png";
 
+// ─── Playground ─────────────
 import imgPlayAI from "../imports/Playground/AILeadflow.png";
 import imgPlayPet from "../imports/Playground/Petmarket.png";
 import imgPlayGym from "../imports/Playground/Gym.png";
@@ -38,9 +68,12 @@ import imgPlayMake from "../imports/Playground/Makeup.png";
 import imgPlayPla from "../imports/Playground/Plants.png";
 import imgPlayTech from "../imports/Playground/Tech.png";
 
+// ─── Resume ─────────────
 import pdfResume from "../imports/Resume_Abril_Rios.pdf";
 import pdfCV from "../imports/CV_Abril_Rios.pdf";
 
+// ─── SVG ─────────────
+import svgPaths from "../imports/svg/svg-fr9kzdvg5s";
 import svgLogo from "../imports/Icons/Logo.svg";
 import svgSearch from "../imports/Icons/search.svg";
 import svgHighfi from "../imports/Icons/high-fi.svg";
@@ -51,6 +84,8 @@ import svgLogoFooter from "../imports/Icons/LogoFooter.svg";
 import svgGithub from "../imports/Icons/Github.svg";
 import svgBehance from "../imports/Icons/Behance.svg";
 import svgDropdown from "../imports/Icons/Dropdown.svg";
+import svgSparkle2 from "../imports/svg/sparkle.svg";
+import svgLineStep from "../imports/svg/Linestep.svg";
 
 // ─── Translations ────────────────────────────────────────────────────────────
 const t = {
@@ -118,6 +153,7 @@ const t = {
     contactTitle: " Let’s create something meaningful.",
     contactDesc: " Open to full-time roles and collaborations. If you have a project in mind I’d love to hear from you.",
     contactBut: "Get in touch",
+    protoBut: "View Project",
     visualDesign: "Visual Design",
     visualTitle: "Illustration & Content",
     visualDesc: "A collection of illustrations, visual assets and branded content created during my time at XID.",
@@ -194,6 +230,7 @@ Además del diseño de producto, también trabajo con ilustración, contenido vi
     contactTitle: "Creemos algo significativo.",
     contactDesc: "Abierta a puestos de tiempo completo y colaboraciones. Si tienes algún proyecto en mente, me encantaría saber más al respecto.",
     contactBut: "Contáctame",
+    protoBut: "Ver Proyecto",
     visualDesign: "Diseño Visual",
     visualTitle: "Ilustración y contenidos",
     visualDesc: "Una colección de ilustraciones, recursos visuales y contenido de marca creados durante mi etapa en XID.",
@@ -220,7 +257,7 @@ export default function App() {
   const [lang, setLang] = useState<Lang>("en");
   const [activePage, setActivePage] = useState<"home" | "playground">("home");
   const [activeTab, setActiveTab] = useState<"overview" | "context" | "process" | "outcome" | "designsystem">("overview");
-  const [activeProject, setActiveProject] = useState<"ai-doc" | "hotel" | "design-system">("ai-doc");
+  const [activeProject, setActiveProject] = useState<"ai-doc" | "hotel" | "design-system">("hotel");
   const [activeContent, setActiveContent] = useState<"ilustration" | "social" | "brand">("ilustration");
   const tx = t[lang];
 
@@ -252,6 +289,50 @@ export default function App() {
 
   const [isProjectMenuOpen, setIsProjectMenuOpen] = useState(false);
 
+
+  const userflowImages = [UsFlHM, UsFlHM2];
+  const sitemapImages = [SitMapHM];
+  const wireframeImages = [WiFrDash, WiFrDash2, WiFrRes, WiFrRes2, WiFrRes3, WiFrGues,  WiFrGues2, WiFrGues3, WiFrUser,  WiFrRoo, WiFrAud, WiFrHot, WiFrHot2];
+
+  // Gallery state
+  const [activeGallery, setActiveGallery] = useState(null); // Guardará el arreglo de imágenes activo
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isZoomed, setIsZoomed] = useState(false);
+
+  // Gallery navigation
+  const openGallery = (images) => {
+  setActiveGallery(images);
+  setCurrentIndex(0);
+  };
+
+  const closeGallery = () => {
+    setActiveGallery(null);
+    setIsZoomed(false); 
+  };
+
+  const nextImage = () => {
+    if (!activeGallery) return;
+    setCurrentIndex((prev) => (prev + 1) % activeGallery.length);
+     setIsZoomed(false); 
+  };
+
+  const prevImage = () => {
+    if (!activeGallery) return;
+    setCurrentIndex((prev) => (prev - 1 + activeGallery.length) % activeGallery.length);
+    setIsZoomed(false); 
+  };
+
+  // Block scroll
+  useEffect(() => {
+    if (activeGallery) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [activeGallery]);
   
   return (
     
@@ -509,7 +590,7 @@ export default function App() {
        {/* GLOW */}
       <div class="hidden absolute sm:grid rotate-[30deg] top-105 -left-25 w-[260px] h-[260px] bg-[#CD1DF0]/18 rounded-full blur-[100px] pointer-events-none z-0"></div>
       
-        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] pb-5 sm:pb-0 pt-[48px]">
+        <div className="flex flex-col gap-3 px-[18px] md:px-[6%] pb-5 pt-[48px]">
           {/* Left label */}
           <div className="flex flex-col gap-2 shrink-0 mx-[0px] mt-[0px] mb-[16px]">
             <p className="font-medium text-[#4425d5] text-[14px] md:text-[16px] tracking-[-0.8px] opacity-80">
@@ -525,23 +606,23 @@ export default function App() {
 
           {/* Cards */}
           <div className="flex flex-row flex-wrap gap-4 flex-1 w-full">
-            {/* Card 1 — AI Documentation Platform */}
-            <button
-              onClick={() => openProject("ai-doc")}
-              className="bg-[#F9F7FB]/48 py-3 px-6 flex items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
-            >
-                <span className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
-                    {tx.card1Title}
-                </span>
-            </button>
-
-            {/* Card 2 — Hotel Management Platform */}
+            {/* Card 1 — Hotel Management Platform */}
             <button
               onClick={() => openProject("hotel")}
               className="bg-[#F9F7FB]/48 py-3 px-6 flex items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
             >
                 <span  className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
                   {tx.card2Title}
+                </span>
+            </button>
+
+            {/* Card 2 — AI Documentation Platform */}
+            <button
+              onClick={() => openProject("ai-doc")}
+              className="bg-[#F9F7FB]/48 py-3 px-6 flex items-center rounded-[50px] border border-[#efeef3] ursor-pointer hover:shadow-md transition-shadow"
+            >
+                <span className="font-semibold text-[#504E51] text-[14px] md:text-[16px] tracking-[-0.8px]">
+                    {tx.card1Title}
                 </span>
             </button>
 
@@ -567,62 +648,58 @@ export default function App() {
             backgroundImage: `url("data:image/svg+xml;utf8,<svg viewBox='0 0 1017 546' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'><rect x='0' y='0' height='100%' width='100%' fill='url(%23grad)' opacity='0.09'/><defs><radialGradient id='grad' gradientUnits='userSpaceOnUse' cx='0' cy='0' r='10' gradientTransform='matrix(-28.15 27.7 -22.761 -23.131 831.5 136.5)'><stop stop-color='rgba(205,29,240,1)' offset='0'/><stop stop-color='rgba(255,255,255,0)' offset='1'/></radialGradient></defs></svg>")`,
           }}
         >
-          <div className={`flex flex-col justify-between h-full gap-10 min-h-[400px] px-[18px] md:px-[7%] pt-[70px] ${activeTab === "overview" ? "pb-[66%] sm:pb-[70px]" : "pb-[70px]"}`}>
+          <div className={`flex flex-col  h-full gap-10 min-h-[400px] px-[18px] md:px-[8%] pt-[70px] ${activeTab === "overview" ? "pb-[66%] sm:pb-[70px]" : "pb-[70px]"}`}>
 
             {/* ── HOTEL OVERVIEW ── */}
             {activeProject === "hotel" && activeTab === "overview" && (
               <>
-                <img
-                  src={imgOverviewHotel}
-                  alt=""
-                  className="absolute bottom-0 sm:bottom-auto top-auto sm:top-0 right-0 h-full w-auto max-w-[63%] sm:max-w-[30%] object-contain object-right-bottom sm:object-right-top pointer-events-none"
-                />
-                <div className="flex flex-col gap-3">
-                  <div className="self-start bg-[rgba(87,49,237,0.05)] px-[10px] py-[4px] rounded-[54px]">
-                    <span className="font-semibold text-[#4425d5] text-[12px] md:text-[14px] tracking-[-0.7px] opacity-80">
-                      {lang === "en" ? "MANAGEMENT PLATFORM" : "PLATAFORMA DE GESTIÓN"}
+              {/* Background */}
+              <img class="absolute top-0 right-0 w-full h-full pointer-events-none z-0" src={SelectProBgHM} >
+              </img>
+
+              {/* MOBILE Background */}
+              <img class="sm:hidden top-0 right-0 absolute w-full h-full pointer-events-none z-0" src={SelectProBgHMMobile} >
+              </img>
+                
+                <div className="flex flex-col gap-3 z-10">
+                  {/* Step */} 
+                  <p className="text-[#FFFFFF] text-[12px] md:text-[14px] leading-[1.42] max-w-[570px]"> 
+                    01 / Overview
+                    </p>
+                  {/* Pïll */} 
+                  <div className="self-start bg-[#BEA4EA]/10 px-[10px] py-[4px] rounded-[54px]">
+                    <span className="font-semibold text-[#BEA4EA] text-[12px] md:text-[14px] tracking-[-0.7px] opacity-80">
+                      {lang === "en" ? "AI DOCUMENTATION TOOL" : "HERRAMIENTA DE DOCUMENTACIÓN CON IA"}
                     </span>
                   </div>
-                  <p className="font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] lg:text-[54px] text-black tracking-[-1.08px] leading-[0.8] max-w-[570px]">
-                    {lang === "en" ? "Optimizing complex workflows for business users" : "Optimizando flujos de trabajo complejos para usuarios empresariales"}
+                  {/* Info */} 
+                  <p className="text-[#FFFFFF] font-semibold text-[24px] md:text-[32px] lg:text-[40px] tracking-[-1.08px] leading-[0.9] max-w-[570px]">
+                    {lang === "en" ? "Simplifying complex hotel operations." : "Simplificación de operaciones hoteleras complejas."}
                   </p>
-                  <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] max-w-[570px]">
+                  <p className="text-[#FFFFFF]/80 text-[14px] md:text-[16px] leading-[1.42] max-w-[570px]">
                     {lang === "en"
                       ? "A centralized platform designed to manage hotel operations, reporting, and day-to-day administrative tasks."
                       : "Una plataforma centralizada diseñada para gestionar operaciones hoteleras, reportes y tareas administrativas del día a día."}
                   </p>
+
                 </div>
-                <div className="flex flex-col sm:flex-row justify-between items-start gap-6 sm:gap-0">
-                  <div className="flex flex-col gap-4 flex-1">
-                    <p className="font-semibold text-[16px] text-black tracking-[-0.8px] opacity-80">{lang === "en" ? "The challenge" : "El desafío"}</p>
-                    <p className="text-[#504e51] text-[14px] leading-[1.42] tracking-[-0.42px]">
+
+                {/* CARD */}
+                <div className="lg:bottom-25 md:bottom-8 bottom-8 absolute flex flex-row items-center gap-6 sm:gap-5 z-10 bg-[#FFFFFF]/5 p-[16px] rounded-[18px] w-[365px]">
+                   {/* Sparkle */}   
+                  <div className="h-[25px] w-[25px] relative">
+                    <img className="absolute inset-0 max-w-none object-cover size-full" src={svgSparkle2}/>
+                  </div>
+                    {/* Info */}   
+                  <div className="flex flex-col">
+                    <p className="font-semibold text-[18px] text-[#BEA4EA] tracking-[-0.8px]">{lang === "en" ? "Design Goal" : "Objetivo de diseño"}</p>
+                    <p className="text-[#FFFFFF]/80 text-[16px] leading-[1.42] tracking-[-0.42px]">
                       {lang === "en"
-                        ? "Users relied on disconnected and undefined workflows, resulting in inefficiencies, confusion, and inconsistent outcomes across key operations."
-                        : "Los usuarios dependían de flujos de trabajo desconectados e indefinidos, lo que generaba ineficiencias, confusión y resultados inconsistentes en operaciones clave."}
+                        ? "Make daily operations clearer, faster, and more consistent."
+                        : "Haz que las operaciones diarias sean más claras, rápidas y consistentes."}
                     </p>
                   </div>
-                  <svg className="hidden sm:block shrink-0 mx-6" width="1" height="116" viewBox="0 0 1 116" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.5 0V115.098" stroke="#EFEEF3"/>
-                  </svg>
-                  <div className="flex flex-col gap-4 flex-1">
-                    <p className="font-semibold text-[16px] text-black tracking-[-0.8px] opacity-80">{lang === "en" ? "My Role" : "Mi Rol"}</p>
-                    <p className="text-[#504e51] text-[14px] leading-[1.42] tracking-[-0.42px]">
-                      {lang === "en"
-                        ? "I led discovery, user research, workflow definition, wireframing, prototyping, and high-fidelity design."
-                        : "Lideré el descubrimiento, investigación de usuarios, definición de flujos, wireframing, prototipado y diseño de alta fidelidad."}
-                    </p>
-                  </div>
-                  <svg className="hidden sm:block shrink-0 mx-6" width="1" height="116" viewBox="0 0 1 116" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0.5 0V115.098" stroke="#EFEEF3"/>
-                  </svg>
-                  <div className="flex flex-col gap-4 flex-1">
-                    <p className="font-semibold text-[16px] text-black tracking-[-0.8px] opacity-80">{lang === "en" ? "The Goal" : "El Objetivo"}</p>
-                    <p className="text-[#504e51] text-[14px] leading-[1.42] tracking-[-0.42px]">
-                      {lang === "en"
-                        ? "Reduce operational errors, improve task completion rates, and streamline critical workflows across the platform."
-                        : "Reducir errores operativos, mejorar las tasas de finalización de tareas y agilizar los flujos de trabajo críticos en toda la plataforma."}
-                    </p>
-                  </div>
+
                 </div>
               </>
             )}
@@ -630,118 +707,390 @@ export default function App() {
             {/* ── HOTEL CONTEXT & CHALLENGE ── */}
             {activeProject === "hotel" && activeTab === "context" && (
               <>
-                <div className="flex flex-col gap-3">
-                  <p className="font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] lg:text-[54px] text-black tracking-[-1.08px] leading-[0.8] max-w-[700px]">
-                    {lang === "en"
-                      ? "This concept project was created to showcase my product design process"
-                      : "Este proyecto conceptual fue creado para mostrar mi proceso de diseño de producto"}
+              {/* Background */}
+              <img class="top-0 right-0 absolute w-full h-full pointer-events-none z-0" src={SelectProBg2} >
+              </img>
+
+              <div className="flex flex-col gap-3 z-10 sm:w-[905px]">
+                  {/* Step */} 
+                  <p className="text-[#FFFFFF] text-[12px] md:text-[14px] leading-[1.42] max-w-[570px]"> 
+                    02 /  Context & Challenge
                   </p>
-                  <p className="text-[#4425d5] text-[16px] md:text-[18px] leading-[1.42]">
-                    {lang === "en"
-                      ? <>It is inspired by patterns, challenges, and workflows I encountered <strong>while working on hospitality products under confidentiality agreements.</strong></>
-                      : <>Está inspirado en patrones, desafíos y flujos de trabajo que encontré <strong>mientras trabajaba en productos de hospitalidad bajo acuerdos de confidencialidad.</strong></>}
+                  {/* Info */} 
+                 <p className="text-[#FFFFFF] font-semibold text-[24px] md:text-[32px] lg:text-[40px] tracking-[-1.08px] leading-[0.9]">
+                    {lang === "en" ? "From operational complexity to clear opportunity" : "De la complejidad operativa a una oportunidad clara."}
                   </p>
-                </div>
-                <div className="flex flex-row justify-between items-start">
-                  <div className="flex flex-col gap-3">
-                    <p className="font-semibold text-[18px] text-black">{lang === "en" ? "Context" : "Contexto"}</p>
-                    <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] tracking-[-0.48px]">
-                      {lang === "en"
-                        ? <><strong>Many hospitality businesses rely on complex operational processes </strong>that involve reservations, staff management, reporting, and day-to-day coordination. When workflows are fragmented or poorly defined, teams face inefficiencies, communication gaps, and operational errors that directly impact service quality.</>
-                        : <><strong>Muchos negocios de hospitalidad dependen de procesos operativos complejos </strong>que involucran reservas, gestión de personal, reportes y coordinación diaria. Cuando los flujos están fragmentados, los equipos enfrentan ineficiencias y errores operativos.</>}
-                    </p>
+                  <p className="text-[#FFFFFF]/80 text-[14px] md:text-[16px] leading-[1.42] ">
+                    {lang === "en"
+                      ? "The hotel management platform needed to centralize daily operations, reduce manual work, and make it easier for staff access the right information at the right time."
+                      : "La plataforma de gestión hotelera necesitaba centralizar las operaciones diarias, reducir el trabajo manual y facilitar que el personal pudiera acceder a la información adecuada en el momento oportuno."}
+                  </p>
+              </div>
+
+              {/* Container */}
+              <div className="flex flex-col sm:flex-row gap-5 justify-between z-10">    
+                
+                  {/* CARD */}
+                  <div className="flex flex-col w-full gap-6 sm:gap-5  bg-[#FFFFFF]/5 p-[16px] rounded-[18px]">
+                    {/* Sparkle */}   
+                    <div className="h-[25px] w-[25px] relative">
+                      <img className="absolute inset-0 max-w-none object-cover size-full" src={svgSparkle2}/>
+                    </div>
+                      {/* Info */}   
+                    <div className="flex flex-col">
+                      <p className="font-semibold text-[18px] text-[#FFFFFF] tracking-[-0.8px] pb-2">
+                        {lang === "en" ? "Operational complexity" : "Complejidad operativa"}
+                      </p>
+                      <p className="text-[#FFFFFF]/80 text-[16px] leading-[1.42] tracking-[-0.42px]">
+                        {lang === "en"
+                          ? "Multiple processes, modules and user roles to manage every day."
+                          : "Múltiples procesos, módulos y roles de usuario que gestionar a diario."}
+                      </p>
+                    </div>
                   </div>
-                  <svg className="shrink-0 mx-6" width="1" height="173" viewBox="0 0 1 173" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 0V172.333" stroke="#EFEEF3"/>
-</svg>
-                  <div className="flex flex-col gap-3">
-                    <p className="font-semibold text-[18px] text-black">{lang === "en" ? "Challenge" : "Desafío"}</p>
-                    <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] tracking-[-0.48px]">
-                      {lang === "en"
-                        ? "The challenge was to create a centralized platform that simplified complex processes while providing users with a clear and intuitive experience."
-                        : "El desafío era crear una plataforma centralizada que simplificara procesos complejos brindando a los usuarios una experiencia clara e intuitiva."}
-                    </p>
+
+                  {/* CARD */}
+                  <div className="flex flex-col w-full gap-6 sm:gap-5  bg-[#FFFFFF]/5 p-[16px] rounded-[18px]">
+                    {/* Sparkle */}   
+                    <div className="h-[25px] w-[25px] relative">
+                      <img className="absolute inset-0 max-w-none object-cover size-full" src={svgSparkle2}/>
+                    </div>
+                      {/* Info */}   
+                    <div className="flex flex-col">
+                      <p className="font-semibold text-[18px] text-[#FFFFFF] tracking-[-0.8px] pb-2">
+                        {lang === "en" ? "Disconnected workflows" : "Flujos de trabajo desconectados"}
+                      </p>
+                      <p className="text-[#FFFFFF]/80 text-[16px] leading-[1.42] tracking-[-0.42px]">
+                        {lang === "en"
+                          ? "Information was fragmented across tools and systems, causing delays and errors."
+                          : "La información estaba fragmentada entre diversas herramientas y sistemas, lo que provocaba retrasos y errores."}
+                      </p>
+                    </div>
                   </div>
-                </div>
+
+                  {/* CARD */}
+                  <div className="flex flex-col w-full gap-6 sm:gap-5  bg-[#FFFFFF]/5 p-[16px] rounded-[18px]">
+                    {/* Sparkle */}   
+                    <div className="h-[25px] w-[25px] relative">
+                      <img className="absolute inset-0 max-w-none object-cover size-full" src={svgSparkle2}/>
+                    </div>
+                      {/* Info */}   
+                    <div className="flex flex-col">
+                      <p className="text-[#FFFFFF] font-semibold text-[18px]  tracking-[-0.8px] pb-2">
+                        {lang === "en" ? "Design opportunity Goal" : "Oportunidad de diseño"}
+                      </p>
+                      <p className="text-[#FFFFFF]/80 text-[16px] leading-[1.42] tracking-[-0.42px]">
+                        {lang === "en"
+                          ? "A unified platform to simplify tasks, improve visibility and support faster decisions."
+                          : "Una plataforma unificada para simplificar tareas, mejorar la visibilidad y facilitar una toma de decisiones más rápida."}
+                      </p>
+                    </div>
+                  </div>
+
+              </div>
               </>
             )}
 
             {/* ── HOTEL PROCESS ── */}
             {activeProject === "hotel" && activeTab === "process" && (
               <>
-                <div>
-                  <p className="font-['Cormorant_Garamond',serif] font-bold text-[54px] md:text-[60px] lg:text-[72px] text-black tracking-[-1.08px] leading-[0.8]">
-                    {lang === "en" ? "Process" : "Proceso"}
+                {/* Background */}
+              <img class="top-0 right-0 absolute w-full h-full pointer-events-none z-0" src={SelectProBg3} >
+              </img>
+
+              <div className="flex flex-col gap-3 z-10 sm:w-[905px]">
+                  {/* Step */} 
+                  <p className="text-[#FFFFFF] text-[12px] md:text-[14px] leading-[1.42] max-w-[570px]"> 
+                    03 /  Process
+                  </p>
+                  {/* Info */} 
+                 <p className="text-[#FFFFFF] font-semibold text-[24px] md:text-[32px] lg:text-[40px] tracking-[-1.08px] leading-[0.9]">
+                    {lang === "en" ? "From structure to interaction" : "De la estructura a la interacción"}
+                  </p>
+                  <p className="text-[#FFFFFF]/80 text-[14px] md:text-[16px] leading-[1.42] ">
+                    {lang === "en"
+                      ? "With the key requirements defined, I translated the findings into clear workflows and interface structures."
+                      : "Una vez definidos los requisitos clave, traduje los hallazgos en flujos de trabajo y estructuras de interfaz claros."}
+                  </p>
+              </div>
+
+              {/* Steper Container */}
+              <div className="hidden sm:flex flex-col z-10 h-[15px]">    
+                {/* Line */}   
+                <div className="h-[2px] w-full relative">
+                      <img className="inset-0 max-w-none object-cover size-full" src={svgLineStep}/>
+                </div>
+                {/* Steps */}
+                <div className="-top-5 relative flex flex-row justify-between z-10 mx-[160px]">
+                  {/* Step */} 
+                  <p className="bg-[#BEA4EA] text-[#171C39] font-bold px-[16px] py-[8px] rounded-[64px]">
+                    1
+                  </p>
+                  {/* Step */} 
+                  <p className="bg-[#BEA4EA] text-[#171C39] font-bold px-[16px] py-[8px] rounded-[64px]">
+                    2
+                  </p>
+                  {/* Step */} 
+                  <p className="bg-[#BEA4EA] text-[#171C39] font-bold px-[16px] py-[8px] rounded-[64px]">
+                    3
                   </p>
                 </div>
-                <div className="flex flex-row justify-between items-start">
-                  <div className="flex flex-col gap-3">
-                    <p className="font-semibold text-[18px] text-black">{lang === "en" ? "Beginning" : "Inicio"}</p>
-                    <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] tracking-[-0.48px]">
-                      {lang === "en"
-                        ? "The project began with stakeholder interviews to better understand operational challenges, business goals, and existing workflows."
-                        : "El proyecto comenzó con entrevistas a partes interesadas para comprender mejor los desafíos operativos, los objetivos del negocio y los flujos de trabajo existentes."}
-                    </p>
-                  </div>
-                  <svg className="shrink-0 mx-6" width="1" height="150" viewBox="0 0 1 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.5 0V149.481" stroke="#EFEEF3"/>
-</svg>
+              </div>
 
-                  <div className="flex flex-col gap-3">
-                    <p className="font-semibold text-[18px] text-black">{lang === "en" ? "Research" : "Investigación"}</p>
-                    <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] tracking-[-0.48px]">
-                      {lang === "en"
-                        ? "Through research, workflow analysis, and evaluation of current tools, I identified several opportunities to improve efficiency and reduce friction across daily tasks. One key finding was that users needed more than operational improvements; they also required an intuitive interface that minimized the learning curve and enabled teams to become productive quickly."
-                        : "A través de investigación, análisis de flujos de trabajo y evaluación de herramientas actuales, identifiqué oportunidades para mejorar la eficiencia. Un hallazgo clave fue que los usuarios necesitaban una interfaz intuitiva que minimizara la curva de aprendizaje."}
-                    </p>
-                  </div>
+              {/*CARD Container */}
+              <div className=" hidden sm:flex flex-col sm:flex-row gap-5 justify-between z-10">    
+                
+                {/* CARD*/}
+                <div className="relative h-[180px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                  style={{ backgroundImage: `url(${UserFlowHM})` }}>
+                  {/* BUTTON*/}
+                  <button onClick={() => openGallery(userflowImages)} class="absolute bottom-3 flex flex-row w-[92%] justify-between right-3 flex items-center cursor-pointer border-none hover:opacity-70 transition-opacity">
+                      <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                        Userflows
+                      </span>
+                      <div class="size-[24px] rotate-90">
+                        <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                          <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                        </svg>
+                      </div>
+                  </button>
                 </div>
-                <p className="text-[#4425d5] text-[16px] md:text-[18px] leading-[1.42] tracking-[-0.54px]">
-                  <strong>{lang === "en" ? "Based on these insights" : "Con base en estos hallazgos"}</strong>
-                  {lang === "en"
-                    ? ", I defined user flows, information architecture, and interface patterns focused on clarity, efficiency, and ease of use."
-                    : ", definí flujos de usuario, arquitectura de información y patrones de interfaz enfocados en claridad, eficiencia y facilidad de uso."}
+
+                {/* CARD*/}
+                <div className="relative h-[180px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                  style={{ backgroundImage: `url(${SiteMapHM})` }}>
+                  {/* BUTTON*/}
+                  <button onClick={() => openGallery(sitemapImages)} class="absolute bottom-3 flex flex-row w-[92%] justify-between right-3 flex items-center cursor-pointer border-none hover:opacity-70 transition-opacity">
+                      <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                       Sitemaps
+                      </span>
+                      <div class="size-[24px] rotate-90">
+                        <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                          <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                        </svg>
+                      </div>
+                  </button>
+                </div>
+
+                {/* CARD*/}
+                <div className="relative h-[180px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                  style={{ backgroundImage: `url(${LowFipHM})` }}>
+                  {/* BUTTON*/}
+                  <button onClick={() => openGallery(wireframeImages)} class="absolute bottom-3 flex flex-row w-[92%] justify-between right-3 flex items-center cursor-pointer border-none hover:opacity-70 transition-opacity">
+                      <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                        Low-fi Wireframes
+                      </span>
+                      <div class="size-[24px] rotate-90">
+                        <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                          <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                        </svg>
+                      </div>
+                  </button>
+                </div>
+              </div>
+
+              {/*INFO Container */}
+              <div className=" hidden sm:flex flex-col sm:flex-row w-full gap-5 justify-between z-10 -mt-5">    
+                <p className="text-[#FFFFFF]/80 font-regular text-[14px] md:text-[16px] leading-[1.42] w-full">
+                    {lang === "en"
+                      ? "Defined the main paths and decision points for core operational tasks."
+                      : "Se definieron las rutas principales y los puntos de decisión para las tareas operativas fundamentales."}
                 </p>
+
+                <p className="text-[#FFFFFF]/80 text-[14px] md:text-[16px] leading-[1.42] w-full">
+                    {lang === "en"
+                      ? "Organized modules and navigation to make key features easier to access."
+                      : "Módulos y navegación organizados para facilitar el acceso a las funciones clave."}
+                </p>
+
+                <p className="text-[#FFFFFF]/80 text-[14px] md:text-[16px] leading-[1.42] w-full">
+                    {lang === "en"
+                      ? "Validating layout, hierarchy, and task flows before defining the visual design."
+                      : "Validar la disposición, la jerarquía y los flujos de tareas antes de definir el diseño visual."}
+                </p>
+              </div>
+              
+              {/* MOBILE */}
+              <div className="sm:hidden flex flex-col sm:flex-row gap-5 justify-between z-10">    
+                  {/*Steper Container */}
+                  <div className="sm:hidden flex flex-col z-10 h-[15px]">    
+                    {/* Line */}   
+                    <div className="h-[2px] w-full relative">
+                        <img className="inset-0 max-w-none object-cover size-full" src={svgLineStep}/>
+                    </div>
+                    {/* Steps */}
+                    <div className="-top-5 relative flex flex-row justify-between z-10 mx-[160px]">
+                      {/* Step */} 
+                      <p className="bg-[#BEA4EA] text-[#171C39] font-bold px-[16px] py-[8px] rounded-[64px]">
+                      1
+                      </p>
+                  </div>
+                  </div>
+
+                  {/* CARD*/}
+                  <div className="relative h-[180px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                    style={{ backgroundImage: `url(${UserFlowHM})` }}>
+                    {/* BUTTON*/}
+                    <button onClick={() => openGallery(userflowImages)} class="absolute bottom-3 flex flex-row w-[92%] justify-between right-3 flex items-center cursor-pointer border-none hover:opacity-70 transition-opacity">
+                        <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                          Userflows
+                        </span>
+                        <div class="size-[24px] rotate-90">
+                          <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                            <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                          </svg>
+                        </div>
+                    </button>
+                  </div>
+                  
+                  {/*Steper Container */}
+                  <div className="sm:hidden flex flex-col z-10 h-[15px]">    
+                    {/* Line */}   
+                    <div className="h-[2px] w-full relative">
+                        <img className="inset-0 max-w-none object-cover size-full" src={svgLineStep}/>
+                    </div>
+                    {/* Steps */}
+                    <div className="-top-5 relative flex flex-row justify-between z-10 mx-[160px]">
+                      {/* Step */} 
+                      <p className="bg-[#BEA4EA] text-[#171C39] font-bold px-[16px] py-[8px] rounded-[64px]">
+                      2
+                      </p>
+                  </div>
+                  </div>
+
+                  {/* CARD*/}
+                  <div className="relative h-[180px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                    style={{ backgroundImage: `url(${SiteMapHM})` }}>
+                    {/* BUTTON*/}
+                    <button onClick={() => openGallery(sitemapImages)} class="absolute bottom-3 flex flex-row w-[92%] justify-between right-3 flex items-center cursor-pointer border-none hover:opacity-70 transition-opacity">
+                        <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                        Sitemaps
+                        </span>
+                        <div class="size-[24px] rotate-90">
+                          <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                            <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                          </svg>
+                        </div>
+                    </button>
+                  </div>
+                  
+                  {/*Steper Container */}
+                  <div className="sm:hidden flex flex-col z-10 h-[15px]">    
+                    {/* Line */}   
+                    <div className="h-[2px] w-full relative">
+                        <img className="inset-0 max-w-none object-cover size-full" src={svgLineStep}/>
+                    </div>
+                    {/* Steps */}
+                    <div className="-top-5 relative flex flex-row justify-between z-10 mx-[160px]">
+                      {/* Step */} 
+                      <p className="bg-[#BEA4EA] text-[#171C39] font-bold px-[16px] py-[8px] rounded-[64px]">
+                      3
+                      </p>
+                  </div>
+                  </div>
+
+                  {/* CARD*/}
+                  <div className="relative h-[180px] w-full bg-cover bg-center bg-no-repeat ursor-pointer rounded-[16px]" 
+                    style={{ backgroundImage: `url(${LowFipHM})` }}>
+                    {/* BUTTON*/}
+                    <button onClick={() => openGallery(wireframeImages)} class="absolute bottom-3 flex flex-row w-[92%] justify-between right-3 flex items-center cursor-pointer border-none hover:opacity-70 transition-opacity">
+                        <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                          Low-fi Wireframes
+                        </span>
+                        <div class="size-[24px] rotate-90">
+                          <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                            <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                          </svg>
+                        </div>
+                    </button>
+                  </div>
+
+              </div>
+
               </>
             )}
 
             {/* ── HOTEL OUTCOME & LEARNINGS ── */}
             {activeProject === "hotel" && activeTab === "outcome" && (
               <>
-                <div className="flex flex-col gap-3">
-                  <p className="font-['Cormorant_Garamond',serif] font-bold text-[36px] md:text-[48px] lg:text-[54px] text-black tracking-[-1.08px] leading-[0.8]">
-                    {lang === "en" ? "Outcome & Learnings" : "Resultados y Aprendizajes"}
-                  </p>
-                  <p className="text-[#4425d5] text-[16px] md:text-[18px] leading-[1.42] max-w-[700px]">
-                    {lang === "en"
-                      ? "The result was a user-centered platform designed to support operational workflows through a clear, scalable, and intuitive experience."
-                      : "El resultado fue una plataforma centrada en el usuario diseñada para apoyar flujos de trabajo operativos a través de una experiencia clara, escalable e intuitiva."}
-                  </p>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <p className="font-semibold text-[18px] text-black">{lang === "en" ? "Outcome" : "Resultado"}</p>
-                  <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] tracking-[-0.48px]">
-                    {lang === "en"
-                      ? "By aligning business requirements with user needs, the solution helped reduce complexity, improve task completion, and provide a more consistent experience across key operational processes."
-                      : "Al alinear los requisitos del negocio con las necesidades del usuario, la solución ayudó a reducir la complejidad y mejorar la experiencia en los procesos operativos clave."}
+              {/* Background */}
+              <img class="top-0 right-0 absolute w-full h-full pointer-events-none z-0" src={SelectProBg4} >
+              </img>
+
+                
+                <div className="flex flex-col gap-3 z-10">
+                  {/* Step */} 
+                  <p className="text-[#FFFFFF] text-[12px] md:text-[14px] leading-[1.42] max-w-[570px]"> 
+                    04 / Outcome & Learnings
+                    </p>
+                  {/* Info */} 
+                  <p className="text-[#FFFFFF] font-semibold text-[24px] md:text-[32px] lg:text-[40px] tracking-[-1.08px] leading-[0.9] max-w-[570px]">
+                    {lang === "en" ? "The final product in action" : "El producto final en acción"}
                   </p>
                 </div>
-                <div className="flex flex-col gap-3">
-                  <p className="font-semibold text-[18px] text-black">{lang === "en" ? "Learnings" : "Aprendizajes"}</p>
-                  <p className="text-[#504e51] text-[14px] md:text-[16px] leading-[1.42] tracking-[-0.48px]">
-                    {lang === "en"
-                      ? "This project reinforced an important lesson: successful products are not defined solely by visual design. Great product design emerges from balancing usability, business goals, and operational needs. In workflow-heavy environments, understanding user objectives and process dependencies is essential to creating meaningful and effective solutions."
-                      : "Este proyecto reforzó una lección importante: los productos exitosos no se definen únicamente por el diseño visual. El gran diseño emerge del equilibrio entre usabilidad, objetivos del negocio y necesidades operativas."}
-                  </p>
+
+                <div className=" flex flex-col sm:flex-row items-center gap-6 z-10">
+                  <div className=" flex flex-col gap-6 z-10">
+                    {/* CARD */}
+                    <div className="flex flex-row items-center gap-6 sm:gap-5 bg-[#FFFFFF]/5 p-[16px] rounded-[18px] lg:w-[450px] md:w-[300px]">
+                      {/* Sparkle */}   
+                      <div className="h-[25px] w-[40px] relative">
+                        <img className="absolute inset-0 max-w-none object-cover size-full" src={svgSparkle2}/>
+                      </div>
+                        {/* Info */}   
+                      <div className="flex flex-col">
+                        <p className="font-semibold text-[18px] text-[#BEA4EA] tracking-[-0.8px]">
+                          {lang === "en" ? "Key learnings" : "Aprendizajes clave"}
+                          </p>
+                        <p className="text-[#FFFFFF]/80 text-[16px] leading-[1.42] tracking-[-0.42px]">
+                          {lang === "en"
+                            ? "Clear workflows depend on understanding the relationships between tasks, users, and business needs."
+                            : "Unos flujos de trabajo claros dependen de comprender las relaciones entre las tareas, los usuarios y las necesidades del negocio."}
+                        </p>
+                      </div>
+
+                    </div>
+                    {/* CARD */}
+                    <div className="flex flex-row items-center gap-6 sm:gap-5 bg-[#FFFFFF]/5 p-[16px] rounded-[18px] lg:w-[450px] md:w-[300px]">
+                      {/* Sparkle */}   
+                      <div className="h-[25px] w-[30px] relative">
+                        <img className="absolute inset-0 max-w-none object-cover size-full" src={svgSparkle2}/>
+                      </div>
+                        {/* Info */}   
+                      <div className="flex flex-col">
+                        <p className="font-semibold text-[18px] text-[#BEA4EA] tracking-[-0.8px]">
+                          {lang === "en" ? "The outcome" : "El resultado"}
+                          </p>
+                        <p className="text-[#FFFFFF]/80 text-[16px] leading-[1.42] tracking-[-0.42px]">
+                          {lang === "en"
+                            ? "Key operational tasks brought together in a more structured interface."
+                            : "Tareas operativas clave reunidas en una interfaz más estructurada."}
+                        </p>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  {/* CARD*/}
+                  <div className="relative h-[200px] w-full sm:h-[350px] sm:w-[620px] bg-cover bg-center bg-no-repeat ursor-pointer rounded-[18px]" 
+                    style={{ backgroundImage: `url(${ProtoHM})` }}>
+                    {/* BUTTON*/} 
+                    <button class="absolute bottom-3 right-3 flex items-center rounded-[24px] px-6 md:px-6 py-3 md:py-3 gap-2 cursor-pointer bg-[#5731ED] mt-3 border-none hover:opacity-70 transition-opacity">
+                      <span class="font-semibold text-[#FFFFFF] text-[14px] tracking-[-0.14px]">
+                        <a href="https://www.figma.com/proto/juUsVkWKsFFVPdaFN7Toky/Hotel-Management?node-id=65-2391&p=f&viewport=84%2C462%2C0.07&t=NIOLvf4lA6vr2Eib-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=65%3A2391&show-proto-sidebar=1&page-id=30%3A3" target="_blank" rel="noopener noreferrer"> {tx.protoBut} </a>
+                      </span>
+                      <div class="size-[24px] rotate-90">
+                        <svg class="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 24 24">
+                          <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
+                        </svg>
+                      </div>
+                    </button>
+                  </div>
+
                 </div>
-                <div className="flex justify-end">
-                 <a href="https://www.figma.com/proto/juUsVkWKsFFVPdaFN7Toky/Hotel-Management?node-id=65-2391&p=f&viewport=84%2C462%2C0.07&t=NIOLvf4lA6vr2Eib-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=65%3A2391&show-proto-sidebar=1&page-id=30%3A3" target="_blank"><button className="flex items-center gap-2 px-8 py-4 rounded-[26px] border border-[rgba(87,49,237,0.18)] bg-[rgba(87,49,237,0.03)] hover:bg-[rgba(87,49,237,0.10)] transition-colors">
-                    <span className="text-[#5731ed] text-[14px] font-semibold tracking-[-0.14px] whitespace-nowrap">
-                      {lang === "en" ? "View Project" : "Ver Proyecto"}
-                    </span>
-                    <div className="size-[24px] rotate-90"><ArrowIcon color="#5731ED" /></div>
-                  </button></a> 
-                </div>
+
+                
+
               </>
             )}
 
@@ -1107,7 +1456,7 @@ export default function App() {
         </div>
         
         {/* Right: sidebar */}
-        <div className="bg-[#f9f7fb] w-full lg:w-[300px] xl:w-[349px] shrink-0">
+        <div className="bg-[#f9f7fb] w-full lg:w-[350px] xl:w-[420px] shrink-0">
           <div className="flex flex-col gap-4 lg:gap-8 px-6 md:px-10 lg:px-10 py-6 md:py-8 lg:py-[70px] h-full">
             
             {/* NAV */}
@@ -1444,18 +1793,18 @@ export default function App() {
 
             {/* ── PROJECTS ── */}
             <div className="z-5">
-           <div className={`flex justify-between w-full overflow-hiden flex-wrap h-[285px] sm:h-[260px] mb-4`}>
+           <div className={`flex justify-between w-full overflow-hiden flex-wrap h-[285px] sm:h-[260px] md:h-[680px] lg:h-[265px] xl:h-[275px] mb-4`}>
 
             {/* ── ILLUSTRATION  ── */}
             {activeContent === "ilustration" && (
               <>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] md:mb-5 object-cover object-center"
                 src={imgvisualIllustration1} style={{}}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualIllustration2} style={{ }}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualIllustration3} style={{}}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualIllustration4} style={{}}/>  
               </>
             )}
@@ -1463,13 +1812,13 @@ export default function App() {
             {/* ── SOCIAL CONTENT ── */}
             {activeContent === "social" && (
               <>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] md:mb-5 object-cover object-center"
                 src={imgvisualSocial1} style={{}}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] bject-cover object-center"
                 src={imgvisualSocial2} style={{ }}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualSocial3} style={{}}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualSocial4} style={{}}/> 
               </>
             )}
@@ -1477,13 +1826,13 @@ export default function App() {
             {/* ── BRAND ── */}
             {activeContent === "brand" && (
               <>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] md:mb-5 object-cover object-center"
                 src={imgvisualBrand1} style={{}}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualBrand2} style={{ }}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualBrand3} style={{}}/>
-              <img alt="" className="h-[135px] sm:h-full object-cover object-center"
+              <img alt="" className="h-[132px] sm:h-full md:h-[335px] lg:h-[265px] xl:h-[270px] object-cover object-center"
                 src={imgvisualBrand4} style={{}}/> 
               </>
             )}
@@ -1804,7 +2153,7 @@ export default function App() {
                       <path d="M8.53 10.53C8.46134 10.6037 8.37854 10.6628 8.28654 10.7038C8.19454 10.7448 8.09523 10.7668 7.99452 10.7686C7.89382 10.7704 7.79379 10.7518 7.7004 10.7141C7.60701 10.6764 7.52218 10.6203 7.45096 10.549C7.37974 10.4778 7.3236 10.393 7.28588 10.2996C7.24816 10.2062 7.22963 10.1062 7.23141 10.0055C7.23319 9.90478 7.25523 9.80546 7.29622 9.71346C7.33721 9.62146 7.39631 9.53866 7.47 9.47L11.47 5.47C11.6106 5.32955 11.8012 5.25066 12 5.25066C12.1988 5.25066 12.3894 5.32955 12.53 5.47L16.53 9.47C16.6037 9.53866 16.6628 9.62146 16.7038 9.71346C16.7448 9.80546 16.7668 9.90478 16.7686 10.0055C16.7704 10.1062 16.7518 10.2062 16.7141 10.2996C16.6764 10.393 16.6203 10.4778 16.549 10.549C16.4778 10.6203 16.393 10.6764 16.2996 10.7141C16.2062 10.7518 16.1062 10.7704 16.0055 10.7686C15.9048 10.7668 15.8055 10.7448 15.7135 10.7038C15.6215 10.6628 15.5387 10.6037 15.47 10.53L12.75 7.81V17.5C12.75 17.6989 12.671 17.8897 12.5303 18.0303C12.3897 18.171 12.1989 18.25 12 18.25C11.8011 18.25 11.6103 18.171 11.4697 18.0303C11.329 17.8897 11.25 17.6989 11.25 17.5V7.81L8.53 10.53Z" fill="#FFFFFF"></path>
                     </svg>
                   </div>
-            </button>
+              </button>
             </div>
 
           </div>
@@ -2019,9 +2368,64 @@ export default function App() {
          
         </div>
       </footer>
-        </section>
+        </section> 
       )}
+
+     {/* ── OVERLAY── */}
+    {activeGallery && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/65 backdrop-blur-sm">
+        
+        {/* X */}
+        <button 
+          onClick={closeGallery} 
+          className="absolute top-6 right-6 text-white text-2xl bg-transparent border-none cursor-pointer z-50 p-2"
+        >
+          ✕
+        </button>
+
+        {/* < */}
+        {activeGallery.length > 1 && (
+          <button 
+            onClick={prevImage} 
+            className="absolute left-6 text-white bg-black/40 p-3 rounded-full cursor-pointer border-none z-50 size-12 flex items-center justify-center text-xl hover:bg-black/70 transition-colors"
+          >
+            ‹
+          </button>
+        )}
+
+        {/* IMG */}
+        <div className={`max-h-[89vh] max-w-[90%] bg-zinc-900/50 p-2 rounded-xl border border-white/10 shadow-2xl flex transition-all duration-300 ${
+          isZoomed 
+            ? "overflow-auto items-start justify-start w-[80vw] h-[85vh]" 
+            : "overflow-hidden items-center justify-center"
+        }`}>
+          <img 
+            src={activeGallery[currentIndex]} 
+            alt="Galería" 
+            onClick={() => setIsZoomed(!isZoomed)}
+            className={`rounded-lg transition-transform duration-200 select-none shrink-0 ${
+              isZoomed 
+                ? "cursor-zoom-out max-h-none max-w-none w-[2500px] h-autoscale-[1]" 
+                : "object-contain max-h-[85vh] w-full cursor-zoom-in"
+            }`} 
+          />
+        </div>
+
+        {/* > */}
+        {activeGallery.length > 1 && (
+          <button 
+            onClick={nextImage} 
+            className="absolute right-6 text-white bg-black/40 p-3 rounded-full cursor-pointer border-none z-50 size-12 flex items-center justify-center text-xl hover:bg-black/70 transition-colors"
+          >
+            ›
+          </button>
+        )}
+
+      </div>
+      
+    )}
     </div>
+    
   );
 }
 
