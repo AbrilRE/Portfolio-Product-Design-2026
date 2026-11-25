@@ -95,7 +95,7 @@ const t = {
     playground: "Playground",
     name: "Designing digital  experiences, with a focus on usability and visual coherence.",
     role: "Product Designer | UI/UX Designer ",
-    tagline: "4 years of experience in UI/UX, with background in Computer Engineering. I turn ideas into functional and meaningful products.",
+    tagline: "5 years of experience in UI/UX, with background in Computer Engineering. I turn ideas into functional and meaningful products.",
     location: "Mexico",
     faster: "Faster interface creation",
     designsys: "Design Systems delivered",
@@ -133,7 +133,7 @@ const t = {
     niceToMeet: "I like understanding how things work.",
     bio: (
       <>
-        I'm a Product Designer with a background in Computer Engineering and 4 years of experience designing digital products, from enterprise platforms and SaaS to mobile experiences.
+        I'm a Product Designer with a background in Computer Engineering and 5 years of experience designing digital products, from enterprise platforms and SaaS to mobile experiences.
         <br></br> <br></br>
         I enjoy taking complex requirements, finding what actually matters, and turning them into experiences that feel clear, useful, and intentional.
         <br></br> <br></br>
@@ -168,7 +168,7 @@ const t = {
     playground: "Exploración",
     name: "Diseñando experiencias digitales, con un enfoque en usabilidad y coherencia visual.",
     role: "Diseñador de Producto | Diseñador UI/UX",
-    tagline: "4 años de experiencia en UI/UX, con formación en Ingeniería Informática. Transformo ideas en productos funcionales y significativos.",
+    tagline: "5 años de experiencia en UI/UX, con formación en Ingeniería Informática. Transformo ideas en productos funcionales y significativos.",
     location: "México",
     faster: "Creación rápida de interfaces",
     designsys: "Sistemas de diseño entregados",
@@ -206,7 +206,7 @@ const t = {
     niceToMeet: "Me gusta entender cómo funcionan las cosas.",
     bio: (
       <>
-        Soy diseñador de producto con formación en ingeniería informática y 4 años de experiencia diseñando productos digitales, desde plataformas empresariales y SaaS hasta experiencias móviles.
+        Soy diseñador de producto con formación en ingeniería informática y 5 años de experiencia diseñando productos digitales, desde plataformas empresariales y SaaS hasta experiencias móviles.
 
 <br></br> <br></br>
 
